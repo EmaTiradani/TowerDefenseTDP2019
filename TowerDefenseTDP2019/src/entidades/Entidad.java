@@ -1,5 +1,6 @@
 package entidades;
 
+<<<<<<< HEAD
 import javax.swing.JLabel;
 
 public abstract class Entidad {
@@ -12,5 +13,8 @@ public abstract class Entidad {
 		return sprite;
 	}
 	
+=======
+public abstract class Entidad {
+>>>>>>> branch 'master' of https://github.com/EmaTiradani/TowerDefenseTDP2019.git
 
 }
