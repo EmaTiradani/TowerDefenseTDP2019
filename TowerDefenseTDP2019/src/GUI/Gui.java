@@ -28,13 +28,13 @@ public class Gui extends JFrame{
 		//Mapa
 		mapa = new JLabel();
 		mapa.setBounds(0,0, 1280, 768);
-		mapa.setIcon(new ImageIcon(this.getClass().getResource("/recursos/aseeseseeeeee.jpg")));	
+		mapa.setIcon(new ImageIcon(this.getClass().getResource("/recursos/game ground.jpg")));	
 		this.getContentPane().add(mapa);	
 		
 		//Aliado y Enemigo de prueba
-		Entidad e = new AliadoTest(9, 5);
+		Entidad e = new AliadoTest(0, 3);
 		mapa.add(e.getSprite());		
-		e = new EnemigoTest(0, 3);
+		e = new EnemigoTest(9, 2);
 		mapa.add(e.getSprite());
 	}
 }
