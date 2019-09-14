@@ -1,25 +1,18 @@
 package GUI;
 
 import java.awt.Insets;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
 import entidades.Entidad;
-import personajes.AliadoTest;
-import personajes.EnemigoTest;
 
 public class Gui extends JFrame{
-	private JLabel mapa;
+	private JLabel mapa;	
 	
-	public static void main(String[]args) {
-		Gui g = new Gui();
-		g.setVisible(true);
-		
-	}
-	public Gui() {
+	public Gui() {		
 		//Inicialización del frame
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setVisible(true);
 		this.pack();
 		Insets in = this.getInsets();
 		this.setBounds(0,0,1280+in.left+in.right,768+in.top+in.bottom);
@@ -29,12 +22,12 @@ public class Gui extends JFrame{
 		mapa = new JLabel();
 		mapa.setBounds(0,0, 1280, 768);
 		mapa.setIcon(new ImageIcon(this.getClass().getResource("/recursos/game ground.jpg")));	
-		this.getContentPane().add(mapa);	
-		
-		//Aliado y Enemigo de prueba
-		Entidad e = new AliadoTest(0, 3);
-		mapa.add(e.getSprite());		
-		e = new EnemigoTest(9, 2);
-		mapa.add(e.getSprite());
+		this.getContentPane().add(mapa);
+		this.repaint();
+	}
+	
+	public void agregarEntidad(Entidad e) {
+		mapa.add(e.getSprite());	
+		this.repaint();
 	}
 }
