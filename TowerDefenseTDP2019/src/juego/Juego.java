@@ -37,7 +37,7 @@ public class Juego {
 	}
 	
 	public boolean celdaEstaOcupada(int x, int y) {
-		return nivel[y][x].getEntidad()!=null;
+		return !nivel[y][x].getEntidad().iterator().hasNext();
 	}
 	
 	public void setEntidad(Entidad e) {
