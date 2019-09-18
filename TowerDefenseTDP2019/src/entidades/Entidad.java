@@ -3,7 +3,7 @@ package entidades;
 import javax.swing.JLabel;
 import visitor.Visitor;
 
-public abstract class Entidad implements Runnable {
+public abstract class Entidad {
 	
 	protected JLabel sprite;
 	protected int x;
@@ -29,15 +29,8 @@ public abstract class Entidad implements Runnable {
 		return y;
 	}
 
-	public abstract void accion();
+	public abstract void accion(float estimatedTime);
 	
 	public abstract boolean accept(Visitor v);
-	
-	public void run() {
-		while (true) {
-			accion();			
-		}	
-	}
-	
 	
 }

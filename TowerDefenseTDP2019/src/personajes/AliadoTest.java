@@ -7,9 +7,7 @@ import entidades.Aliado;
 import visitor.Visitor;
 
 public class AliadoTest extends Aliado {
-	
-	private int cooldown;
-	
+		
 	public AliadoTest(int x, int y) {
 		super(x, y, 100, 3, 2);
 		
@@ -18,20 +16,8 @@ public class AliadoTest extends Aliado {
 		sprite.setBounds(this.x, this.y, 128, 128);
 	}
 	
-	public void accion() {
+	public void accion(float estimatedTime) {
 		
-	}
-
-	public void run() {
-		try {
-			while (true) {
-				//System.out.println("Run AliadoTest");
-				Thread.sleep(cooldown*1000);
-			}
-		}
-		catch (InterruptedException e) {
-			e.printStackTrace();
-		}	
 	}
 	
 	public boolean accept(Visitor v) {

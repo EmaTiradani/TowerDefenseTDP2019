@@ -1,5 +1,8 @@
 package juego;
 
+import java.util.Collection;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
 import GUI.Gui;
 import entidades.Entidad;
 import personajes.AliadoTest;
@@ -11,8 +14,12 @@ public class Juego {
 	
 	protected Gui gui;
 	protected Celda[][] nivel;
+	protected Collection<Entidad> entidades;
+	protected HiloEntidades hilo;
 		
 	protected Juego() {
+		entidades = new ConcurrentLinkedQueue<>();
+		hilo = new HiloEntidades();
 	}	
 	
 	public static Juego getJuego() {
@@ -24,16 +31,22 @@ public class Juego {
 	
 	public void comenzarJuego() {
 		crearMapa();
-		gui = new Gui();		
+		gui = new Gui();
 		
 		//Aliado y Enemigo de prueba
 		Entidad e = new AliadoTest(7, 2);
-		new Thread(e).start();
-		Juego.getJuego().setEntidad(e);
+		//new Thread(e).start();
+		this.setEntidad(e);
 		gui.agregarEntidad(e);		
 		Entidad en = new EnemigoTest(9, 2);
-		new Thread(en).start();
+		//new Thread(en).start();
 		gui.agregarEntidad(en);	
+		entidades.add(en);
+		en = new EnemigoTest(9, 4);
+		gui.agregarEntidad(en);	
+		entidades.add(en);	
+
+		new Thread(hilo).start();
 	}
 	
 	public boolean celdaEstaOcupada(int x, int y) {
@@ -55,6 +68,12 @@ public class Juego {
 				nivel[i][j] = new Celda();
 			}
 		}
+	}
+
+	public void moverEntidades(float estimatedTime) {
+		for (Entidad e : entidades) {
+			e.accion(estimatedTime);
+		}		
 	}
 
 }
