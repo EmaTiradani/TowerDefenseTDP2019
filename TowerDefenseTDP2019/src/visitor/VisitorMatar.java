@@ -2,16 +2,16 @@ package visitor;
 
 import entidades.Aliado;
 import entidades.Enemigo;
-import entidades.Personaje;
 
-public class VisitorEnemigo extends Visitor {
+public class VisitorMatar extends Visitor {
 
 	public boolean visit(Aliado entidad) {
-		return true;
+		return false;
 	}
 
 	public boolean visit(Enemigo entidad) {
-		return false;
+		entidad.morir();
+		return true;
 	}
 
 }

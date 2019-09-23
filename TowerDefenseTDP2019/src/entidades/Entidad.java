@@ -1,6 +1,9 @@
 package entidades;
 
 import javax.swing.JLabel;
+
+import GUI.Gui;
+import juego.Juego;
 import visitor.Visitor;
 
 public abstract class Entidad {
@@ -11,8 +14,8 @@ public abstract class Entidad {
 	protected Visitor miVisitor;
 	
 	protected Entidad(int x, int y, Visitor vis) {
-		this.x = x*128;
-		this.y = y*128;
+		this.x = x*Gui.spriteSize;
+		this.y = y*Gui.spriteSize;
 		miVisitor = vis;
 		
 	}
@@ -32,5 +35,9 @@ public abstract class Entidad {
 	public abstract void accion(float estimatedTime);
 	
 	public abstract boolean accept(Visitor v);
+	
+	public void morir() {
+		Juego.getJuego().matar(this);
+	}
 	
 }

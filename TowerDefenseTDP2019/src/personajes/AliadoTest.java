@@ -3,6 +3,7 @@ package personajes;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import GUI.Gui;
 import entidades.Aliado;
 import visitor.Visitor;
 
@@ -13,7 +14,7 @@ public class AliadoTest extends Aliado {
 		
 		sprite = new JLabel();
 		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/cannon.png")));
-		sprite.setBounds(this.x, this.y, 128, 128);
+		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
 	}
 	
 	public void accion(float estimatedTime) {

@@ -7,6 +7,8 @@ import GUI.Gui;
 import entidades.Entidad;
 import personajes.AliadoTest;
 import personajes.EnemigoTest;
+import visitor.Visitor;
+import visitor.VisitorMatar;
 
 public class Juego {
 	
@@ -16,6 +18,7 @@ public class Juego {
 	protected Celda[][] nivel;
 	protected Collection<Entidad> entidades;
 	protected HiloEntidades hilo;
+	protected int puntaje;
 		
 	protected Juego() {
 		entidades = new ConcurrentLinkedQueue<>();
@@ -54,7 +57,7 @@ public class Juego {
 	}
 	
 	public void setEntidad(Entidad e) {
-		nivel[e.getY()/128][e.getX()/128].setEntidad(e);
+		nivel[e.getY()/Gui.spriteSize][e.getX()/Gui.spriteSize].setEntidad(e);
 	}
 	
 	public Iterable<Entidad> getEntidad(int x, int y) {
@@ -74,6 +77,23 @@ public class Juego {
 		for (Entidad e : entidades) {
 			e.accion(estimatedTime);
 		}		
+	}
+
+	public void matar(Entidad entidad) {
+		entidades.remove(entidad);		
+		gui.remove(entidad);
+	}
+
+	public void visitarEntidades(Visitor v) {
+		for (Entidad e : entidades) {
+			e.accept(v);
+		}
+		
+	}
+
+	public void sumarPuntos(int i) {
+		puntaje += i;
+		gui.actualizarPuntaje(puntaje);
 	}
 
 }
