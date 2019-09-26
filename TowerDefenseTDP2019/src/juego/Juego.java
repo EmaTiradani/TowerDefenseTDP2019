@@ -2,13 +2,11 @@ package juego;
 
 import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
-
 import GUI.Gui;
 import entidades.Entidad;
 import personajes.AliadoTest;
 import personajes.EnemigoTest;
 import visitor.Visitor;
-import visitor.VisitorMatar;
 
 public class Juego {
 	
@@ -38,11 +36,11 @@ public class Juego {
 		
 		//Aliado y Enemigo de prueba
 		Entidad e = new AliadoTest(7, 2);
-		//new Thread(e).start();
 		this.setEntidad(e);
-		gui.agregarEntidad(e);		
+		gui.agregarEntidad(e);	
+		entidades.add(e);
 		Entidad en = new EnemigoTest(9, 2);
-		//new Thread(en).start();
+		this.setEntidad(en);
 		gui.agregarEntidad(en);	
 		entidades.add(en);
 		en = new EnemigoTest(9, 4);
@@ -53,14 +51,14 @@ public class Juego {
 	}
 	
 	public boolean celdaEstaOcupada(int x, int y) {
-		return !nivel[y][x].getEntidad().iterator().hasNext();
+		return nivel[y][x].getEntidad()!=null;
 	}
 	
 	public void setEntidad(Entidad e) {
 		nivel[e.getY()/Gui.spriteSize][e.getX()/Gui.spriteSize].setEntidad(e);
 	}
 	
-	public Iterable<Entidad> getEntidad(int x, int y) {
+	public Entidad getEntidad(int x, int y) {
 		return nivel[y][x].getEntidad();
 	}
 	
@@ -82,6 +80,7 @@ public class Juego {
 	public void matar(Entidad entidad) {
 		entidades.remove(entidad);		
 		gui.remove(entidad);
+		nivel[entidad.getY()/Gui.spriteSize][entidad.getX()/Gui.spriteSize].setEntidad(null);
 	}
 
 	public void visitarEntidades(Visitor v) {

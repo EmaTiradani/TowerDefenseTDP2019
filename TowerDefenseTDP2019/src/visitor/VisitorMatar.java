@@ -5,13 +5,11 @@ import entidades.Enemigo;
 
 public class VisitorMatar extends Visitor {
 
-	public boolean visit(Aliado entidad) {
-		return false;
+	public void visit(Aliado entidad) {
 	}
 
-	public boolean visit(Enemigo entidad) {
+	public void visit(Enemigo entidad) {
 		entidad.morir();
-		return true;
 	}
 
 }

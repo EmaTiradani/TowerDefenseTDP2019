@@ -1,10 +1,5 @@
 package entidades;
 
-import java.util.Iterator;
-
-import GUI.Gui;
-import juego.Juego;
-
 public abstract class EnemigoCerca extends Enemigo {
 	
 	protected int daño;
@@ -14,38 +9,11 @@ public abstract class EnemigoCerca extends Enemigo {
 		this.daño = daño;
 	}
 	
-	public void accion(float estimatedTime) {
-		cooldownActual -= estimatedTime;		
-		if ((x-velocidad)/Gui.spriteSize<x/Gui.spriteSize) {
-			//Intento ir a la siguiente celda
-			Iterator<Entidad> it = Juego.getJuego().getEntidad((x-velocidad)/Gui.spriteSize, y/Gui.spriteSize).iterator();
-			Entidad e;
-			boolean encontre = false;
-			while (!encontre && it.hasNext()) {
-				e = it.next();
-				if (e.accept(miVisitor)) {
-					encontre = true;
-					//Atacar
-					if (cooldownActual<=0) {
-						System.out.println("Ataque");
-						cooldownActual = cooldownAtaque;						
-					}
-				}
-			}
-			if (!encontre) {
-				mover();
-			}			
-		}	
-		else {
-			mover();
+	public void atacar(Atacable a) {
+		if (cooldownActual<=0) {
+			System.out.println("Ataque");
+			cooldownActual = cooldownAtaque;	
+			a.recibirDaño(daño);
 		}
-	}
-	
-	protected void mover() {
-		if ((x-velocidad)/Gui.spriteSize<x/Gui.spriteSize) {
-			//Cambio de celda
-		}
-		x-= velocidad;
-		sprite.setBounds(x, y, Gui.spriteSize, Gui.spriteSize);
 	}
 }

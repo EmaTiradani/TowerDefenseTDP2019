@@ -13,10 +13,9 @@ public abstract class Entidad {
 	protected int y;
 	protected Visitor miVisitor;
 	
-	protected Entidad(int x, int y, Visitor vis) {
+	protected Entidad(int x, int y) {
 		this.x = x*Gui.spriteSize;
 		this.y = y*Gui.spriteSize;
-		miVisitor = vis;
 		
 	}
 	
@@ -34,7 +33,7 @@ public abstract class Entidad {
 
 	public abstract void accion(float estimatedTime);
 	
-	public abstract boolean accept(Visitor v);
+	public abstract void accept(Visitor v);
 	
 	public void morir() {
 		Juego.getJuego().matar(this);

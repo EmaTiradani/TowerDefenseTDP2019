@@ -5,24 +5,20 @@ import javax.swing.JLabel;
 
 import GUI.Gui;
 import entidades.Aliado;
-import visitor.Visitor;
 
 public class AliadoTest extends Aliado {
 		
 	public AliadoTest(int x, int y) {
-		super(x, y, 100, 3, 2);
+		super(x, y, 10, 1, 2);
 		
 		sprite = new JLabel();
 		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/cannon.png")));
 		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
 	}
 	
-	public void accion(float estimatedTime) {
-		
-	}
-	
-	public boolean accept(Visitor v) {
-		return v.visit(this);
+	public void disparar() {
+		System.out.println("Disparar");
+		cooldownActual = cooldownAtaque;
 	}
 
 }
