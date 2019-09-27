@@ -34,7 +34,9 @@ public abstract class Enemigo extends Personaje {
 
 	public void mover() {
 		if ((x-velocidad)/Gui.spriteSize<x/Gui.spriteSize) {
-			//Cambio de celda
+			//Cambio de celda en el mapa
+			Juego.getJuego().setEntidad(x/Gui.spriteSize, y/Gui.spriteSize, null);
+			Juego.getJuego().setEntidad((x-velocidad)/Gui.spriteSize, y/Gui.spriteSize, this);
 		}
 		x-= velocidad;
 		sprite.setBounds(x, y, Gui.spriteSize, Gui.spriteSize);

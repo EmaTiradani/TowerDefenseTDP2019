@@ -6,6 +6,7 @@ import GUI.Gui;
 import entidades.Entidad;
 import personajes.AliadoTest;
 import personajes.EnemigoTest;
+import personajes.Pinches;
 import visitor.Visitor;
 
 public class Juego {
@@ -36,16 +37,22 @@ public class Juego {
 		
 		//Aliado y Enemigo de prueba
 		Entidad e = new AliadoTest(7, 2);
-		this.setEntidad(e);
+		this.setEntidad(7, 2, e);
 		gui.agregarEntidad(e);	
 		entidades.add(e);
 		Entidad en = new EnemigoTest(9, 2);
-		this.setEntidad(en);
+		this.setEntidad(9, 2, en);
 		gui.agregarEntidad(en);	
 		entidades.add(en);
-		en = new EnemigoTest(9, 4);
+		en = new EnemigoTest(9, 3);
 		gui.agregarEntidad(en);	
+		this.setEntidad(9, 3, en);
 		entidades.add(en);	
+		
+		e = new Pinches(7, 3);
+		//this.setEntidad(7, 3, e);
+		gui.agregarEntidad(e);
+		entidades.add(e);
 
 		new Thread(hilo).start();
 	}
@@ -54,8 +61,8 @@ public class Juego {
 		return nivel[y][x].getEntidad()!=null;
 	}
 	
-	public void setEntidad(Entidad e) {
-		nivel[e.getY()/Gui.spriteSize][e.getX()/Gui.spriteSize].setEntidad(e);
+	public void setEntidad(int x, int y, Entidad e) {
+		nivel[y][x].setEntidad(e);
 	}
 	
 	public Entidad getEntidad(int x, int y) {

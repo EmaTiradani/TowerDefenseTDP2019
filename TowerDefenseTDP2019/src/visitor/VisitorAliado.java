@@ -2,6 +2,7 @@ package visitor;
 
 import entidades.Aliado;
 import entidades.Enemigo;
+import entidades.ObjetoVida;
 
 public class VisitorAliado extends Visitor {
 	
@@ -16,6 +17,9 @@ public class VisitorAliado extends Visitor {
 
 	public void visit(Enemigo entidad) {
 		a.disparar();
+	}
+
+	public void visit(ObjetoVida entidad) {		
 	}
 
 }

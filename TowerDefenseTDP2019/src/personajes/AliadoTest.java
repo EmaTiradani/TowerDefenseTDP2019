@@ -17,7 +17,7 @@ public class AliadoTest extends Aliado {
 	}
 	
 	public void disparar() {
-		System.out.println("Disparar");
+		//System.out.println("Disparar");
 		cooldownActual = cooldownAtaque;
 	}
 

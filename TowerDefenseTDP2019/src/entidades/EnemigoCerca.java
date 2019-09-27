@@ -11,7 +11,7 @@ public abstract class EnemigoCerca extends Enemigo {
 	
 	public void atacar(Atacable a) {
 		if (cooldownActual<=0) {
-			System.out.println("Ataque");
+			//System.out.println("Ataque");
 			cooldownActual = cooldownAtaque;	
 			a.recibirDaño(daño);
 		}

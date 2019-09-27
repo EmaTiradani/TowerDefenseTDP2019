@@ -3,25 +3,24 @@ package visitor;
 import entidades.Aliado;
 import entidades.Enemigo;
 import entidades.ObjetoVida;
+import personajes.Pinches;
 
-public class VisitorEnemigo extends Visitor {
+public class VisitorPinche extends Visitor {
 	
-	protected Enemigo en;
-	
-	public VisitorEnemigo(Enemigo e) {
-		en = e;
+	protected Pinches pinches;
+
+	public VisitorPinche(Pinches p) {
+		pinches = p;
 	}
-	
+
 	public void visit(Aliado entidad) {
-		en.atacar(entidad);
 	}
 
 	public void visit(Enemigo entidad) {
-		en.mover();
+		pinches.atacar(entidad);
 	}
 
 	public void visit(ObjetoVida entidad) {
-		en.atacar(entidad);
 	}
 
 }
