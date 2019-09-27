@@ -1,34 +1,21 @@
 package entidades;
 
-import javax.swing.JLabel;
-
-import juego.Celda;
 import visitor.Visitor;
 
 public abstract class Disparo extends Entidad {
 	
-	protected JLabel sprite;
-	protected int x;
-	protected int y;
 	protected int dmg;
 	protected int velocidad;
-	protected Celda estaCelda;
+	protected int target; //Punto maximo donde puede llegar el disparo
 	
-	protected Disparo(int x, int y) {
+	protected Disparo(int x, int y, int dmg, int velocidad) {
 		super(x, y);
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public void accion(float estimatedTime) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
-
+		this.dmg = dmg;
+		this.velocidad = velocidad;
+	}	
+	
+	public void accept(Visitor v) {		
+		
 	}
 
 }

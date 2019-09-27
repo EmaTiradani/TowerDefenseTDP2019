@@ -25,17 +25,22 @@ public abstract class Aliado extends Personaje {
 
 	public void accion(float estimatedTime) {
 		cooldownActual -= estimatedTime;
-		if (cooldownActual<=0) {
-			Entidad e;
-			for (int i=1; i<=alcance; i++) {
-				e = Juego.getJuego().getEntidad(x/Gui.spriteSize + i, y/Gui.spriteSize);				
-				if (e!=null) {
-					e.accept(miVisitor);
-				}
+		Entidad e;
+		for (int i=1; i<=alcance; i++) {
+			e = Juego.getJuego().getEntidad(x/Gui.spriteSize + i, y/Gui.spriteSize);					
+			if (e!=null) {
+				e.accept(miVisitor);
 			}
 		}
 		
 	}
 
-	public abstract void disparar();
+	public void disparar() {
+		if (cooldownActual<=0) {
+			Juego.getJuego().agregarEntidad(this.crearDisparo());
+			cooldownActual = cooldownAtaque;
+		}		
+	}
+	
+	protected abstract Disparo crearDisparo();
 }

@@ -36,21 +36,22 @@ public class Juego {
 		gui = new Gui();
 		
 		//Aliado y Enemigo de prueba
-		Entidad e = new AliadoTest(7, 2);
-		this.setEntidad(7, 2, e);
+		Entidad e = new AliadoTest(4, 2);
+		this.setEntidad(4, 2, e);
 		gui.agregarEntidad(e);	
 		entidades.add(e);
+		
 		Entidad en = new EnemigoTest(9, 2);
 		this.setEntidad(9, 2, en);
 		gui.agregarEntidad(en);	
 		entidades.add(en);
+		
 		en = new EnemigoTest(9, 3);
 		gui.agregarEntidad(en);	
 		this.setEntidad(9, 3, en);
-		entidades.add(en);	
+		entidades.add(en);
 		
 		e = new Pinches(7, 3);
-		//this.setEntidad(7, 3, e);
 		gui.agregarEntidad(e);
 		entidades.add(e);
 
@@ -71,14 +72,13 @@ public class Juego {
 	
 	public void agregarEntidad(Entidad e) {
 		gui.agregarEntidad(e);
-		entidades.add(e);
-		
+		entidades.add(e);		
 	}
 	
 	protected void crearMapa() {
-		nivel = new Celda[6][10];
-		for(int i=0; i<6; i++) {
-			for(int j=0; j<10; j++) {
+		nivel = new Celda[6][20];
+		for(int i=0; i<nivel.length; i++) {
+			for(int j=0; j<nivel[0].length; j++) {
 				nivel[i][j] = new Celda();
 			}
 		}
@@ -93,7 +93,11 @@ public class Juego {
 	public void matar(Entidad entidad) {
 		entidades.remove(entidad);		
 		gui.remove(entidad);
-		nivel[entidad.getY()/Gui.spriteSize][entidad.getX()/Gui.spriteSize].setEntidad(null);
+		Entidad e = nivel[entidad.getY()/Gui.spriteSize][entidad.getX()/Gui.spriteSize].getEntidad();
+		if (e==entidad) {
+			nivel[entidad.getY()/Gui.spriteSize][entidad.getX()/Gui.spriteSize].setEntidad(null);
+		}
+		
 	}
 
 	public void visitarEntidades(Visitor v) {

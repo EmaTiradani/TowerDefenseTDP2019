@@ -17,7 +17,6 @@ public class VisitorEnemigo extends Visitor {
 	}
 
 	public void visit(Enemigo entidad) {
-		en.mover();
 	}
 
 	public void visit(ObjetoVida entidad) {

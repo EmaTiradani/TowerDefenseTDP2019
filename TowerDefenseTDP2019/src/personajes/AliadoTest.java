@@ -5,24 +5,20 @@ import javax.swing.JLabel;
 
 import GUI.Gui;
 import entidades.Aliado;
-import entidades.DisparoAliado;
-import entidades.Entidad;
-import juego.Juego;
+import entidades.Disparo;
 
 public class AliadoTest extends Aliado {
 		
 	public AliadoTest(int x, int y) {
-		super(x, y, 10, 1, 2);
+		super(x, y, 10, 1, 8);
 		
 		sprite = new JLabel();
 		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/cannon.png")));
 		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
 	}
 	
-	public void disparar() {
-		Entidad arrow = new DisparoAliado(this.x, this.y, 50, 10);
-		Juego.getJuego().agregarEntidad(arrow);
-		cooldownActual = cooldownAtaque;
+	public Disparo crearDisparo() {
+		return new DisparoAliadoTest(this.x/Gui.spriteSize, this.y/Gui.spriteSize, alcance);
 	}
 
 }
