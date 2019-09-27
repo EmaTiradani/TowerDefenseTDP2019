@@ -31,8 +31,7 @@ public abstract class Aliado extends Personaje {
 			if (e!=null) {
 				e.accept(miVisitor);
 			}
-		}
-		
+		}		
 	}
 
 	public void disparar() {

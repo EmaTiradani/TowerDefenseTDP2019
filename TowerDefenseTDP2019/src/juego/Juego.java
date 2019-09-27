@@ -5,13 +5,16 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import GUI.Gui;
 import entidades.Entidad;
 import personajes.AliadoTest;
+import personajes.Barricada;
+import personajes.EnemigoRangeTest;
 import personajes.EnemigoTest;
-import personajes.Pinches;
 import visitor.Visitor;
 
 public class Juego {
 	
 	protected static Juego INSTANCE = null;
+	public static int COMIENZO_MAPA = 10; //Columna inicial del juego.
+	public static int FINAL_MAPA = 20; //Columna final del juego. Es aca donde los enemigos empiezan a aparecer
 	
 	protected Gui gui;
 	protected Celda[][] nivel;
@@ -36,24 +39,25 @@ public class Juego {
 		gui = new Gui();
 		
 		//Aliado y Enemigo de prueba
-		Entidad e = new AliadoTest(4, 2);
-		this.setEntidad(4, 2, e);
+		Entidad e = new AliadoTest(13, 2);
+		this.setEntidad(13, 2, e);
 		gui.agregarEntidad(e);	
 		entidades.add(e);
 		
-		Entidad en = new EnemigoTest(9, 2);
-		this.setEntidad(9, 2, en);
+		Entidad en = new EnemigoTest(Juego.FINAL_MAPA, 2);
+		this.setEntidad(Juego.FINAL_MAPA, 2, en);
 		gui.agregarEntidad(en);	
 		entidades.add(en);
 		
-		en = new EnemigoTest(9, 3);
+		en = new EnemigoRangeTest(Juego.FINAL_MAPA, 3);
 		gui.agregarEntidad(en);	
-		this.setEntidad(9, 3, en);
+		this.setEntidad(Juego.FINAL_MAPA, 3, en);
 		entidades.add(en);
 		
-		e = new Pinches(7, 3);
+		e = new Barricada(14, 3);
 		gui.agregarEntidad(e);
 		entidades.add(e);
+		this.setEntidad(14, 3, e);
 
 		new Thread(hilo).start();
 	}
@@ -76,7 +80,7 @@ public class Juego {
 	}
 	
 	protected void crearMapa() {
-		nivel = new Celda[6][20];
+		nivel = new Celda[6][30];
 		for(int i=0; i<nivel.length; i++) {
 			for(int j=0; j<nivel[0].length; j++) {
 				nivel[i][j] = new Celda();

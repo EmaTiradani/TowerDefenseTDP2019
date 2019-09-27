@@ -2,33 +2,36 @@ package visitor;
 
 import GUI.Gui;
 import entidades.Aliado;
-import entidades.Disparo;
+import entidades.DisparoEnemigo;
 import entidades.Enemigo;
 import entidades.Entidad;
 import entidades.ObjetoVida;
 
-public class VisitorDisparoAliado extends Visitor{
+public class VisitorDisparoEnemigo extends Visitor {
 	
-	protected Disparo d;
-	
-	public VisitorDisparoAliado(Disparo d) {
+	DisparoEnemigo d;
+
+	public VisitorDisparoEnemigo(DisparoEnemigo d) {
 		this.d = d;
 	}
-	
-	public void visit(Aliado entidad) {
-	}
 
-	public void visit(Enemigo entidad) {	
+	public void visit(Aliado entidad) {
 		if (hayColision(entidad)) {
 			entidad.recibirDaño(d.getDaño());
 			d.morir();
 		}
 	}
 
-	public void visit(ObjetoVida entidad) {
+	public void visit(Enemigo entidad) {
 	}
-	
-	
+
+	public void visit(ObjetoVida entidad) {
+		if (hayColision(entidad)) {
+			entidad.recibirDaño(d.getDaño());
+			d.morir();
+		}
+	}
+
 	protected boolean hayColision(Entidad e) {
 		boolean colision = false;
 		if (e.getY()==d.getY()) {
@@ -37,6 +40,6 @@ public class VisitorDisparoAliado extends Visitor{
 		}
 		
 		return colision;
-	}
+	}	
 	
 }

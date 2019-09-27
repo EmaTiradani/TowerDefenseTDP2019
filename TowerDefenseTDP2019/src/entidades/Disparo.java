@@ -18,4 +18,10 @@ public abstract class Disparo extends Entidad {
 		
 	}
 
+	public int getDaño() {
+		return dmg;		
+	}
+	
+	public abstract void mover();
+
 }

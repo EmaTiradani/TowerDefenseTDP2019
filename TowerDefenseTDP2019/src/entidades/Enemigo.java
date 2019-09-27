@@ -41,21 +41,4 @@ public abstract class Enemigo extends Personaje {
 		x-= velocidad;
 		sprite.setBounds(x, y, Gui.spriteSize, Gui.spriteSize);
 	}
-
-	public void accion(float estimatedTime) {
-		cooldownActual -= estimatedTime;		
-		if ((x-velocidad)/Gui.spriteSize<x/Gui.spriteSize) {
-			//Intento ir a la siguiente celda
-			Entidad e = Juego.getJuego().getEntidad((x-velocidad)/Gui.spriteSize, y/Gui.spriteSize);
-			if (e!=null) {
-				e.accept(miVisitor);				
-			}
-			else {
-				mover();
-			}
-		}	
-		else {
-			mover();
-		}
-	}
 }

@@ -25,13 +25,13 @@ public class Gui extends JFrame{
 		this.setVisible(true);
 		this.pack();
 		Insets in = this.getInsets();
-		this.setBounds(0,0,Gui.spriteSize*10+300+in.left+in.right,Gui.spriteSize*6+in.top+in.bottom);
+		this.setBounds(0,0,Gui.spriteSize*10+in.left+in.right,Gui.spriteSize*6+in.top+in.bottom+200);
 		this.setLayout(null);
 		
 		//Mapa
 		mapa = new JLabel();
-		mapa.setBounds(0,0, Gui.spriteSize*10, Gui.spriteSize*6);
-		mapa.setIcon(new ImageIcon(this.getClass().getResource("/recursos/game ground.jpg")));	
+		mapa.setBounds(-Gui.spriteSize*Juego.COMIENZO_MAPA,0, Gui.spriteSize*20, Gui.spriteSize*6);
+		mapa.setIcon(new ImageIcon(this.getClass().getResource("/recursos/game ground2.jpg")));	
 		this.getContentPane().add(mapa);
 		
 		//Boton Eliminar
@@ -48,7 +48,7 @@ public class Gui extends JFrame{
 		
 		//Puntaje
 		score = new JLabel("Puntaje: " + 0);
-		score.setBounds(mapa.getBounds().width, eliminar.getBounds().height, 200, 32);
+		score.setBounds(0, mapa.getBounds().height, 200, 32);
 		this.getContentPane().add(score);
 		
 
@@ -57,16 +57,16 @@ public class Gui extends JFrame{
 	
 	public void agregarEntidad(Entidad e) {
 		mapa.add(e.getSprite());	
-		this.repaint();
+		mapa.repaint();
 	}
 	
 	public void actualizarPuntaje(int puntaje) {
 		score.setText("Puntaje: " + puntaje);
-		this.repaint();
+		score.repaint();
 	}
 
 	public void remove(Entidad entidad) {
 		mapa.remove(entidad.getSprite());
-		this.repaint();
+		mapa.repaint();
 	}
 }
