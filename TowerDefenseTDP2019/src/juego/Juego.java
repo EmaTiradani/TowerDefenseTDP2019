@@ -69,6 +69,12 @@ public class Juego {
 		return nivel[y][x].getEntidad();
 	}
 	
+	public void agregarEntidad(Entidad e) {
+		gui.agregarEntidad(e);
+		entidades.add(e);
+		
+	}
+	
 	protected void crearMapa() {
 		nivel = new Celda[6][10];
 		for(int i=0; i<6; i++) {
