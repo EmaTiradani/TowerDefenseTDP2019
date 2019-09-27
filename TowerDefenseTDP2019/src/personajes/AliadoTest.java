@@ -5,6 +5,9 @@ import javax.swing.JLabel;
 
 import GUI.Gui;
 import entidades.Aliado;
+import entidades.DisparoAliado;
+import entidades.Entidad;
+import juego.Juego;
 
 public class AliadoTest extends Aliado {
 		
@@ -18,6 +21,8 @@ public class AliadoTest extends Aliado {
 	
 	public void disparar() {
 		System.out.println("Disparar");
+		Entidad arrow = new DisparoAliado(this.x, this.y, 50, 10);
+		Juego.getJuego().agregarEntidad(arrow);
 		cooldownActual = cooldownAtaque;
 	}
 

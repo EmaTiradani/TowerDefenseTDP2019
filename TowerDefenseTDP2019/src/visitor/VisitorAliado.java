@@ -1,6 +1,7 @@
 package visitor;
 
 import entidades.Aliado;
+import entidades.Disparo;
 import entidades.Enemigo;
 
 public class VisitorAliado extends Visitor {
