@@ -1,6 +1,8 @@
 package GUI;
 
+import java.awt.Dimension;
 import java.awt.Insets;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,9 +25,17 @@ public class Gui extends JFrame{
 		//Inicialización del frame
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);
+		this.setResizable(false);
 		this.pack();
 		Insets in = this.getInsets();
-		this.setBounds(0,0,Gui.spriteSize*10+in.left+in.right,Gui.spriteSize*6+in.top+in.bottom+200);
+		
+		int altura = Gui.spriteSize*6+in.top+in.bottom+200;
+		int ancho = Gui.spriteSize*10+in.left+in.right;
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		int x = (int) screenSize.getWidth()/2-ancho/2;
+		int y = (int) screenSize.getHeight()/2-altura/2;
+		
+		this.setBounds(x, y, ancho, altura);
 		this.setLayout(null);
 		
 		//Mapa
