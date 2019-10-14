@@ -80,7 +80,9 @@ public class Juego {
 	}
 	
 	protected void crearMapa() {
-		nivel = new Celda[6][30];
+		nivel = new Celda[6][30];//El juego solo tiene 10 columnas visibles.
+		//Las otras 20 son columnas invisibles en ambos lados del juego para que los disparos puedan pasar sin caer del arreglo
+		
 		for(int i=0; i<nivel.length; i++) {
 			for(int j=0; j<nivel[0].length; j++) {
 				nivel[i][j] = new Celda();

@@ -13,7 +13,7 @@ public class EnemigoRangeTest extends EnemigoDistancia {
 		super(x, y, 30, 1, 5, 2, 15);
 		
 		sprite = new JLabel();
-		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/bicho.png")));
+		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/goblin.png")));
 		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
 	}
 
