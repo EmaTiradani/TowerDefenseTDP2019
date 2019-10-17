@@ -39,7 +39,7 @@ public class Juego {
 		gui = new Gui();
 		
 		//Aliado y Enemigo de prueba
-		Entidad e = new AliadoTest(13, 2);
+		/*Entidad e = new AliadoTest(13, 2);
 		this.setEntidad(13, 2, e);
 		gui.agregarEntidad(e);	
 		entidades.add(e);
@@ -57,7 +57,7 @@ public class Juego {
 		e = new Barricada(14, 3);
 		gui.agregarEntidad(e);
 		entidades.add(e);
-		this.setEntidad(14, 3, e);
+		this.setEntidad(14, 3, e);*/
 
 		new Thread(hilo).start();
 	}

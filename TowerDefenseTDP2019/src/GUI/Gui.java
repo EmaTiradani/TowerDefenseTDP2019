@@ -5,11 +5,16 @@ import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.TransferHandler;
+
 import entidades.Entidad;
 import juego.Juego;
 import visitor.VisitorMatar;
@@ -20,6 +25,8 @@ public class Gui extends JFrame{
 	public static int spriteSize = 90;
 	
 	protected JLabel score;
+	
+	protected JButton at;
 	
 	public Gui() {		
 		//Inicialización del frame
@@ -44,29 +51,23 @@ public class Gui extends JFrame{
 		mapa.setIcon(new ImageIcon(this.getClass().getResource("/recursos/game ground2.jpg")));	
 		this.getContentPane().add(mapa);
 		
-		//Boton Eliminar
-		JButton eliminar = new JButton("EliminarEnemigos");
-		this.getContentPane().add(eliminar);
-		eliminar.setBounds(mapa.getBounds().width, 0, 200, 32);
-		eliminar.addActionListener(new ActionListener() {
-
-			public void actionPerformed(ActionEvent arg0) {
-				Juego.getJuego().visitarEntidades(new VisitorMatar());				
-			}
-			
-		});
-		
 		//Puntaje
 		score = new JLabel("Puntaje: " + 0);
-		score.setBounds(0, mapa.getBounds().height, 200, 32);
+		score.setBounds(0, mapa.getHeight(), 200, 32);
 		this.getContentPane().add(score);
 		
+		//Boton crear AliadoTest
+		at = new JButton("Crear Aliado Test");
+		at.setBounds(0, mapa.getHeight() + score.getHeight(), 200, 32);
+		this.getContentPane().add(at);
+		
+		this.agregarBotonesComprables();
 
 		this.repaint();
 	}
 	
 	public void agregarEntidad(Entidad e) {
-		mapa.add(e.getSprite());	
+		mapa.add(e.getSprite(), 0);	
 		mapa.repaint();
 	}
 	
@@ -78,5 +79,14 @@ public class Gui extends JFrame{
 	public void remove(Entidad entidad) {
 		mapa.remove(entidad.getSprite());
 		mapa.repaint();
+	}
+	
+	protected void agregarBotonesComprables() {
+		JLabel jl = new JLabel(new ImageIcon(this.getClass().getResource("/recursos/cannon.png")));
+		//jl.setBounds(0, 0, Gui.spriteSize, Gui.spriteSize);
+		this.getContentPane().add(jl, 0);
+		MouseAdapter ma = new ComprableMotionListener(jl, this);
+		at.addMouseListener(ma);
+		at.addMouseMotionListener(ma);
 	}
 }
