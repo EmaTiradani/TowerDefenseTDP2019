@@ -11,7 +11,6 @@ import javax.swing.SwingUtilities;
 import entidades.Entidad;
 import juego.Juego;
 import personajes.AliadoTest;
-import personajes.EnemigoTest;
 
 public class ComprableMotionListener extends MouseAdapter {
 	
@@ -56,13 +55,13 @@ public class ComprableMotionListener extends MouseAdapter {
 		int endY = 6 * Gui.spriteSize;
 		
 		if (mouseX>=0 && mouseX<endX && mouseY>=0 && mouseY<endY) {
-			System.out.println("Adentro Mapa");
-			
 			int mapaX = mouseX/Gui.spriteSize + Juego.COMIENZO_MAPA;
 			int mapaY = mouseY/Gui.spriteSize;
-			Entidad e = new AliadoTest(mapaX, mapaY);
-			Juego.getJuego().setEntidad(mapaX, mapaY, e);
-			Juego.getJuego().agregarEntidad(e);
+			if (Juego.getJuego().getEntidad(mapaX, mapaY)==null) {
+				Entidad e = new AliadoTest(mapaX, mapaY);
+				Juego.getJuego().setEntidad(mapaX, mapaY, e);
+				Juego.getJuego().agregarEntidad(e);
+			}			
 		}
 	}
 

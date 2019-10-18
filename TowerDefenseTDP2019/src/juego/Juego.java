@@ -4,9 +4,6 @@ import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import GUI.Gui;
 import entidades.Entidad;
-import personajes.AliadoTest;
-import personajes.Barricada;
-import personajes.EnemigoRangeTest;
 import personajes.EnemigoTest;
 import visitor.Visitor;
 
@@ -42,19 +39,19 @@ public class Juego {
 		/*Entidad e = new AliadoTest(13, 2);
 		this.setEntidad(13, 2, e);
 		gui.agregarEntidad(e);	
-		entidades.add(e);
+		entidades.add(e);*/
 		
 		Entidad en = new EnemigoTest(Juego.FINAL_MAPA, 2);
 		this.setEntidad(Juego.FINAL_MAPA, 2, en);
 		gui.agregarEntidad(en);	
 		entidades.add(en);
 		
-		en = new EnemigoRangeTest(Juego.FINAL_MAPA, 3);
+		/*en = new EnemigoRangeTest(Juego.FINAL_MAPA, 3);
 		gui.agregarEntidad(en);	
 		this.setEntidad(Juego.FINAL_MAPA, 3, en);
-		entidades.add(en);
+		entidades.add(en);*/
 		
-		e = new Barricada(14, 3);
+		/*e = new Barricada(14, 3);
 		gui.agregarEntidad(e);
 		entidades.add(e);
 		this.setEntidad(14, 3, e);*/
