@@ -13,6 +13,10 @@ public abstract class EnemigoCerca extends Enemigo {
 	}
 	
 	public void atacar(Atacable a) {
+		if (!sprite.getIcon().equals(spriteAtaque)) {
+			sprite.setIcon(spriteAtaque);
+		}
+		
 		if (cooldownActual<=0) {
 			cooldownActual = cooldownAtaque;	
 			a.recibirDaño(daño);

@@ -13,7 +13,7 @@ public class AliadoTest extends Aliado {
 		super(x, y, 10, 1, 8);
 		
 		sprite = new JLabel();
-		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/enemigos/enemigo03_attack.gif")));
+		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/aliados/aliado01.png")));
 		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
 	}
 	

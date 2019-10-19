@@ -13,6 +13,10 @@ public abstract class EnemigoDistancia extends Enemigo {
 	}
 	
 	public void atacar(Atacable a) {
+		if (!sprite.getIcon().equals(spriteAtaque)) {
+			sprite.setIcon(spriteAtaque);
+		}
+		
 		if (cooldownActual<=0) {
 			cooldownActual = cooldownAtaque;	
 			Juego.getJuego().agregarEntidad(this.crearDisparo());

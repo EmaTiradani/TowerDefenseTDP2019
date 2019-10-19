@@ -1,5 +1,7 @@
 package entidades;
 
+import javax.swing.Icon;
+
 import GUI.Gui;
 import juego.Juego;
 import visitor.Visitor;
@@ -9,6 +11,8 @@ public abstract class Enemigo extends Personaje {
 	
 	protected int velocidad;
 	protected int puntaje;
+	protected Icon spriteMovimiento;
+	protected Icon spriteAtaque;
 
 	protected Enemigo(int x, int y, int vida, int vel, int cooldown, int puntaje) {
 		super(x, y, vida, cooldown);
@@ -33,6 +37,10 @@ public abstract class Enemigo extends Personaje {
 	public abstract void atacar(Atacable entidad);
 
 	public void mover() {
+		if (!sprite.getIcon().equals(spriteMovimiento)) {
+			sprite.setIcon(spriteMovimiento);
+		}
+		
 		if ((x-velocidad)/Gui.spriteSize<x/Gui.spriteSize) {
 			//Cambio de celda en el mapa
 			Juego.getJuego().setEntidad(x/Gui.spriteSize, y/Gui.spriteSize, null);
