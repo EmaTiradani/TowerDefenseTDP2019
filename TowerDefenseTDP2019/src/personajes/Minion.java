@@ -8,9 +8,12 @@ import entidades.EnemigoCerca;
 
 public class Minion extends EnemigoCerca {
 	public Minion(int x, int y) {
-		super(x, y, 5, 10, 2, 3, 5);
+		super(x, y, 25, 12, 1, 10, 5);
+		
+		spriteMovimiento = new ImageIcon(this.getClass().getResource("/recursos/enemigos/enemigo01_move.gif"));
+		spriteAtaque = new ImageIcon(this.getClass().getResource("/recursos/enemigos/enemigo01_attack.gif"));
 		sprite = new JLabel();
-		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/goblin.png")));
+		sprite.setIcon(spriteMovimiento);
 		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);				
 	}
 }

@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import GUI.Gui;
 import entidades.Entidad;
-import personajes.EnemigoTest;
+import personajes.*;
 import visitor.Visitor;
 
 public class Juego {
@@ -18,6 +18,7 @@ public class Juego {
 	protected Collection<Entidad> entidades;
 	protected HiloEntidades hilo;
 	protected int puntaje;
+	protected int monedas;
 		
 	protected Juego() {
 		entidades = new ConcurrentLinkedQueue<>();
@@ -34,6 +35,7 @@ public class Juego {
 	public void comenzarJuego() {
 		crearMapa();
 		gui = new Gui();
+		monedas = 50; 
 		
 		//Aliado y Enemigo de prueba
 		/*Entidad e = new AliadoTest(13, 2);
@@ -41,7 +43,7 @@ public class Juego {
 		gui.agregarEntidad(e);	
 		entidades.add(e);*/
 		
-		Entidad en = new EnemigoTest(Juego.FINAL_MAPA, 2);
+		Entidad en = new Tanque(Juego.FINAL_MAPA, 2);
 		this.setEntidad(Juego.FINAL_MAPA, 2, en);
 		gui.agregarEntidad(en);	
 		entidades.add(en);
@@ -110,9 +112,19 @@ public class Juego {
 		
 	}
 
+	public int getMonedas() {
+		return monedas;
+	}
+	
 	public void sumarPuntos(int i) {
 		puntaje += i;
 		gui.actualizarPuntaje(puntaje);
+		sumarMonedas(i);
+	}
+
+	public void sumarMonedas(int i) {
+		monedas += i;
+		gui.actualizarMonedas(monedas);		
 	}
 
 }

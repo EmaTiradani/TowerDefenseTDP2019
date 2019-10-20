@@ -4,29 +4,27 @@ import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 
+import entidades.Aliado;
 import entidades.Entidad;
 import juego.Juego;
-import personajes.AliadoTest;
 
-public class ComprableMotionListener extends MouseAdapter {
+public abstract class ComprableMotionListener extends MouseAdapter {
 	
 	protected JLabel sprite;
 	protected Gui gui;
 	
-	public ComprableMotionListener(JLabel sprite, Gui gui) {
+	protected ComprableMotionListener(Gui gui) {
 		this.gui = gui;
-		this.sprite = sprite;
 	}
 	
 	public void mousePressed(MouseEvent e) {
 		Point p = MouseInfo.getPointerInfo().getLocation();
 		int newX = (int)p.getX() - (gui.getX() + Gui.spriteSize/2);
 		int newY = (int)p.getY() - (gui.getY() + Gui.spriteSize/2);
-		sprite.setBounds(newX, newY, Gui.spriteSize, Gui.spriteSize);
+		actualizarPosicion(newX, newY);
 		
 		sprite.setVisible(true);
 	}
@@ -35,7 +33,7 @@ public class ComprableMotionListener extends MouseAdapter {
 		Point p = MouseInfo.getPointerInfo().getLocation();
 		int newX = (int)p.getX() - (gui.getX() + Gui.spriteSize/2);
 		int newY = (int)p.getY() - (gui.getY() + Gui.spriteSize/2);
-		sprite.setBounds(newX, newY, Gui.spriteSize, Gui.spriteSize);
+		actualizarPosicion(newX, newY);
     }
 	
 	public void mouseReleased(MouseEvent e) {
@@ -58,11 +56,21 @@ public class ComprableMotionListener extends MouseAdapter {
 			int mapaX = mouseX/Gui.spriteSize + Juego.COMIENZO_MAPA;
 			int mapaY = mouseY/Gui.spriteSize;
 			if (Juego.getJuego().getEntidad(mapaX, mapaY)==null) {
-				Entidad e = new AliadoTest(mapaX, mapaY);
-				Juego.getJuego().setEntidad(mapaX, mapaY, e);
-				Juego.getJuego().agregarEntidad(e);
+				Aliado e = crearPersonaje(mapaX, mapaY);
+				if (e.getCoste()<=Juego.getJuego().getMonedas()) {
+					Juego.getJuego().setEntidad(mapaX, mapaY, e);
+					Juego.getJuego().agregarEntidad(e);
+					Juego.getJuego().sumarMonedas(-1*e.getCoste());
+				}
+				
 			}			
 		}
 	}
+	
+	protected void actualizarPosicion(int x, int y) {
+		sprite.setBounds(x, y, Gui.spriteSize, Gui.spriteSize);
+	}
+	
+	protected abstract Aliado crearPersonaje(int x, int y);
 
 }

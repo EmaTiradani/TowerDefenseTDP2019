@@ -1,5 +1,6 @@
 package entidades;
 
+import GUI.Gui;
 import visitor.Visitor;
 
 public abstract class Disparo extends Entidad {
@@ -10,6 +11,7 @@ public abstract class Disparo extends Entidad {
 	
 	protected Disparo(int x, int y, int dmg, int velocidad) {
 		super(x, y);
+		this.x += Gui.spriteSize/2; //Ubica el inicio del disparo en el centro de la celda
 		this.dmg = dmg;
 		this.velocidad = velocidad;
 	}	

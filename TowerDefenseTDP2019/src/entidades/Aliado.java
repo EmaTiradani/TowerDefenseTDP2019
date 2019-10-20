@@ -8,11 +8,17 @@ import visitor.VisitorAliado;
 public abstract class Aliado extends Personaje {
 	
 	protected int alcance;
+	protected int coste;
 
-	protected Aliado(int x, int y, int vida, int cooldown, int alcance) {
+	protected Aliado(int x, int y, int vida, int cooldown, int alcance, int coste) {
 		super(x, y, vida, cooldown);
 		this.alcance = alcance;
+		this.coste = coste;
 		setVisitor();
+	}
+	
+	public int getCoste() {
+		return coste;
 	}
 	
 	protected void setVisitor() {

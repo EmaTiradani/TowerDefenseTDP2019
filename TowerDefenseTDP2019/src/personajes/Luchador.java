@@ -8,9 +8,12 @@ import entidades.EnemigoCerca;
 
 public class Luchador extends EnemigoCerca {
 	public Luchador(int x, int y) {
-		super(x, y, 20, 4, 2, 4, 10);
+		super(x, y, 150, 2, 2, 10, 10);
+		
+		spriteMovimiento = new ImageIcon(this.getClass().getResource("/recursos/enemigos/enemigo02_move.gif"));
+		spriteAtaque = new ImageIcon(this.getClass().getResource("/recursos/enemigos/enemigo02_attack.gif"));
 		sprite = new JLabel();
-		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/goblin.png")));
+		sprite.setIcon(spriteMovimiento);
 		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);				
 	}
 }

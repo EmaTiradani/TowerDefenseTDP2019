@@ -17,8 +17,13 @@ public class Gui extends JFrame{
 	public static int spriteSize = 90;
 	
 	protected JLabel score;
+	protected JLabel monedas;
 	
-	protected JButton at;
+	protected JButton btnTorreBasica;
+	protected JButton btnTorreNormal;
+	protected JButton btnTorreRapida;
+	protected JButton btnFortaleza;
+	protected JButton btnTorreDoble;
 	
 	public Gui() {		
 		//Inicialización del frame
@@ -28,7 +33,7 @@ public class Gui extends JFrame{
 		this.pack();
 		Insets in = this.getInsets();
 		
-		int altura = Gui.spriteSize*6+in.top+in.bottom+200;
+		int altura = Gui.spriteSize*6+in.top+in.bottom+220;
 		int ancho = Gui.spriteSize*10+in.left+in.right;
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		int x = (int) screenSize.getWidth()/2-ancho/2;
@@ -43,15 +48,13 @@ public class Gui extends JFrame{
 		mapa.setIcon(new ImageIcon(this.getClass().getResource("/recursos/game ground2.jpg")));	
 		this.getContentPane().add(mapa);
 		
-		//Puntaje
+		//Puntaje y monedas
 		score = new JLabel("Puntaje: " + 0);
 		score.setBounds(0, mapa.getHeight(), 200, 32);
 		this.getContentPane().add(score);
-		
-		//Boton crear AliadoTest
-		at = new JButton("Crear Aliado Test");
-		at.setBounds(0, mapa.getHeight() + score.getHeight(), 200, 32);
-		this.getContentPane().add(at);
+		monedas = new JLabel("Monedas: " + 50);
+		monedas.setBounds(score.getWidth(), mapa.getHeight(), 200, 32);
+		this.getContentPane().add(monedas);
 		
 		this.agregarBotonesComprables();
 
@@ -67,6 +70,11 @@ public class Gui extends JFrame{
 		score.setText("Puntaje: " + puntaje);
 		score.repaint();
 	}
+	
+	public void actualizarMonedas(int monedas) {
+		this.monedas.setText("Monedas: " + monedas);
+		this.monedas.repaint();
+	}
 
 	public void remove(Entidad entidad) {
 		mapa.remove(entidad.getSprite());
@@ -74,10 +82,51 @@ public class Gui extends JFrame{
 	}
 	
 	protected void agregarBotonesComprables() {
-		JLabel jl = new JLabel(new ImageIcon(this.getClass().getResource("/recursos/cannon.png")));
-		this.getContentPane().add(jl, 0);
-		MouseAdapter ma = new ComprableMotionListener(jl, this);
-		at.addMouseListener(ma);
-		at.addMouseMotionListener(ma);
-	}
+		MouseAdapter ma;
+		
+		//Boton crear TorreBasica
+		btnTorreBasica = new JButton();
+		btnTorreBasica.setBounds(Gui.spriteSize*0, mapa.getHeight() + score.getHeight(), Gui.spriteSize, Gui.spriteSize);
+		btnTorreBasica.setIcon(new ImageIcon(this.getClass().getResource("/recursos/aliados/aliado02.png")));
+		this.getContentPane().add(btnTorreBasica);		
+		ma = new ComprableTorreBasica(this);
+		btnTorreBasica.addMouseListener(ma);
+		btnTorreBasica.addMouseMotionListener(ma);
+		
+		//Boton crear TorreNormal
+		btnTorreNormal = new JButton();
+		btnTorreNormal.setBounds(Gui.spriteSize*1, mapa.getHeight() + score.getHeight(), Gui.spriteSize, Gui.spriteSize);
+		btnTorreNormal.setIcon(new ImageIcon(this.getClass().getResource("/recursos/aliados/aliado01.png")));
+		this.getContentPane().add(btnTorreNormal);		
+		ma = new ComprableTorreNormal(this);
+		btnTorreNormal.addMouseListener(ma);
+		btnTorreNormal.addMouseMotionListener(ma);
+		
+		//Boton crear TorreRapida
+		btnTorreRapida = new JButton();
+		btnTorreRapida.setBounds(Gui.spriteSize*2, mapa.getHeight() + score.getHeight(), Gui.spriteSize, Gui.spriteSize);
+		btnTorreRapida.setIcon(new ImageIcon(this.getClass().getResource("/recursos/aliados/aliado03.png")));
+		this.getContentPane().add(btnTorreRapida);		
+		ma = new ComprableTorreRapida(this);
+		btnTorreRapida.addMouseListener(ma);
+		btnTorreRapida.addMouseMotionListener(ma);
+		
+		//Boton crear Fortaleza
+		btnFortaleza = new JButton();
+		btnFortaleza.setBounds(Gui.spriteSize*3, mapa.getHeight() + score.getHeight(), Gui.spriteSize, Gui.spriteSize);
+		btnFortaleza.setIcon(new ImageIcon(this.getClass().getResource("/recursos/aliados/aliado04.png")));
+		this.getContentPane().add(btnFortaleza);		
+		ma = new ComprableFortaleza(this);
+		btnFortaleza.addMouseListener(ma);
+		btnFortaleza.addMouseMotionListener(ma);
+		
+		//Boton crear TorreDoble
+		btnTorreDoble = new JButton();
+		btnTorreDoble.setBounds(Gui.spriteSize*4, mapa.getHeight() + score.getHeight(), Gui.spriteSize, Gui.spriteSize*2);
+		btnTorreDoble.setIcon(new ImageIcon(this.getClass().getResource("/recursos/aliados/aliado_doble01.png")));
+		this.getContentPane().add(btnTorreDoble);		
+		ma = new ComprableTorreDoble(this);
+		btnTorreDoble.addMouseListener(ma);
+		btnTorreDoble.addMouseMotionListener(ma);
+}
 }
