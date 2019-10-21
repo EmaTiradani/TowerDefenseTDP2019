@@ -2,10 +2,10 @@ package state;
 
 public abstract class Estado {
 	
-	public abstract int getDaño(int dañoBase);
+	public abstract float getDaño(float dañoBase);
 	
 	public abstract int getVelocidad(int velBase);
 	
-	public abstract int recibirDaño(int dañoBase);
+	public abstract float recibirDaño(float dañoBase);
 
 }

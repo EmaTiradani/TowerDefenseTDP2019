@@ -2,7 +2,6 @@ package GUI;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import entidades.Aliado;
 import entidades.Entidad;
 import personajes.TorreRapida;
 

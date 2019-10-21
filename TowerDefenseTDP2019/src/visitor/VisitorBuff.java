@@ -3,24 +3,24 @@ package visitor;
 import entidades.Aliado;
 import entidades.Enemigo;
 import entidades.ObjetoVida;
+import state.Estado;
 
-public class VisitorEnemigo extends Visitor {
+public class VisitorBuff extends Visitor {
 	
-	protected Enemigo en;
+	protected Estado buff;
 	
-	public VisitorEnemigo(Enemigo e) {
-		en = e;
+	public VisitorBuff(Estado estado) {
+		buff = estado;
 	}
-	
+
 	public void visit(Aliado entidad) {
-		en.atacar(entidad);
+		entidad.setEstado(buff);
 	}
 
 	public void visit(Enemigo entidad) {
 	}
 
 	public void visit(ObjetoVida entidad) {
-		en.atacar(entidad);
 	}
 
 }

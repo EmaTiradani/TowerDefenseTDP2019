@@ -1,8 +1,8 @@
 package state;
 
-public class Normal extends Estado {
+public class Rapido extends Estado {
 	
-	public Normal() {		
+	public Rapido() {		
 	}
 
 	public float getDaño(float dañoBase) {
@@ -10,9 +10,9 @@ public class Normal extends Estado {
 	}
 
 	public int getVelocidad(int velBase) {
-		return velBase;
+		return velBase*2;
 	}
-	
+
 	public float recibirDaño(float dañoBase) {
 		return dañoBase;
 	}

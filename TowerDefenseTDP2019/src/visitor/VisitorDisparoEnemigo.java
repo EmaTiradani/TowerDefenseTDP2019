@@ -1,11 +1,11 @@
 package visitor;
 
 import GUI.Gui;
+import entidades.Aliado;
 import entidades.DisparoEnemigo;
 import entidades.Enemigo;
 import entidades.Entidad;
 import entidades.ObjetoVida;
-import entidades.Personaje;
 
 public class VisitorDisparoEnemigo extends Visitor {
 	
@@ -15,7 +15,7 @@ public class VisitorDisparoEnemigo extends Visitor {
 		this.d = d;
 	}
 
-	public void visit(Personaje entidad) {
+	public void visit(Aliado entidad) {
 		if (hayColision(entidad)) {
 			entidad.recibirDaño(d.getDaño());
 			d.morir();

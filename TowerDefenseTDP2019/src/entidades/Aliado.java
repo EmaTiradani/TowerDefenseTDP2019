@@ -2,7 +2,6 @@ package entidades;
 
 import GUI.Gui;
 import juego.Juego;
-import state.Normal;
 import visitor.Visitor;
 import visitor.VisitorAliado;
 

@@ -7,7 +7,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 
-import entidades.Aliado;
 import entidades.Entidad;
 import personajes.TorreDoble;
 

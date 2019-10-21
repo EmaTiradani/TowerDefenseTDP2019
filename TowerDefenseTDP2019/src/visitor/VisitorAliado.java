@@ -3,7 +3,6 @@ package visitor;
 import entidades.Aliado;
 import entidades.Enemigo;
 import entidades.ObjetoVida;
-import entidades.Personaje;
 
 public class VisitorAliado extends Visitor {
 	
@@ -13,7 +12,7 @@ public class VisitorAliado extends Visitor {
 		this.a = a;
 	}
 
-	public void visit(Personaje entidad) {
+	public void visit(Aliado entidad) {
 	}
 
 	public void visit(Enemigo entidad) {

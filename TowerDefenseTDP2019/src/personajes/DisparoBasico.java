@@ -1,9 +1,5 @@
 package personajes;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-
-import GUI.Gui;
 import entidades.DisparoAliado;
 import state.Estado;
 

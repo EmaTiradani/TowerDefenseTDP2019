@@ -3,10 +3,8 @@ package GUI;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import entidades.Aliado;
 import entidades.Entidad;
 import personajes.Barricada;
-import personajes.TorreBasica;
 
 public class ComprableBarricada extends ComprableMotionListener {
 
