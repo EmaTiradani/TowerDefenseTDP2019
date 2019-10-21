@@ -18,11 +18,11 @@ public class TorreDoble extends Aliado {
 	}
 
 	protected Disparo crearDisparo() {
-		return new DisparoDoble(x/Gui.spriteSize, y/Gui.spriteSize, alcance);
+		return new DisparoDoble(x/Gui.spriteSize, y/Gui.spriteSize, alcance, estado);
 	}
 	
 	protected Disparo crearSegundoDisparo() {
-		return new DisparoDoble(x/Gui.spriteSize, y/Gui.spriteSize + 1, alcance);
+		return new DisparoDoble(x/Gui.spriteSize, y/Gui.spriteSize + 1, alcance, estado);
 	}
 	
 	public void accion(float estimatedTime) {

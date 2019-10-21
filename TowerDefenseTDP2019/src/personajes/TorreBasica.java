@@ -6,7 +6,6 @@ import javax.swing.JLabel;
 import GUI.Gui;
 import entidades.Aliado;
 import entidades.Disparo;
-import entidades.Entidad;
 
 public class TorreBasica extends Aliado {
 	
@@ -18,7 +17,7 @@ public class TorreBasica extends Aliado {
 	}
 
 	protected Disparo crearDisparo() {
-		return new DisparoBasico(x/Gui.spriteSize, y/Gui.spriteSize, alcance);
+		return new DisparoBasico(x/Gui.spriteSize, y/Gui.spriteSize, alcance, estado);
 	}
 
 }

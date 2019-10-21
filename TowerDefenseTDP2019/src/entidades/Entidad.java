@@ -30,6 +30,8 @@ public abstract class Entidad {
 	public int getY() {
 		return y;
 	}
+	
+	public abstract int getCoste();
 
 	public abstract void accion(float estimatedTime);
 	

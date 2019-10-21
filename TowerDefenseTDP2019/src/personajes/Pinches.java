@@ -19,12 +19,12 @@ public class Pinches extends ObjetoTemporal {
 	public Pinches(int x, int y) {
 		super(x, y, 20);
 		
-		daño = 5;
+		daño = 15;
 		cooldownAtaque = 0.5f;
 		cooldownActual = 0;
 		
 		sprite = new JLabel();
-		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/bicho enemigo.jpg")));
+		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/objetos/pinches.png")));
 		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
 		
 		setVisitor();
@@ -47,7 +47,8 @@ public class Pinches extends ObjetoTemporal {
 	public void atacar(Enemigo entidad) {
 		if (cooldownActual<=0) {
 			entidad.recibirDaño(daño);		
-			cooldownActual = cooldownAtaque;			
+			cooldownActual = cooldownAtaque;
+			System.out.println("Pegar");			
 		}
 	}
 

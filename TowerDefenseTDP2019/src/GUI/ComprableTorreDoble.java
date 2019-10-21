@@ -7,7 +7,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 
-import entidades.Aliado;
 import entidades.Entidad;
 import personajes.TorreDoble;
 
@@ -20,7 +19,7 @@ public class ComprableTorreDoble extends ComprableMotionListener {
 		gui.getContentPane().add(sprite, 0);
 	}
 
-	protected Aliado crearPersonaje(int x, int y) {
+	protected Entidad crearPersonaje(int x, int y) {
 		return new TorreDoble(x, y);
 	}
 	

@@ -7,7 +7,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 
-import entidades.Aliado;
 import entidades.Entidad;
 import juego.Juego;
 
@@ -56,13 +55,12 @@ public abstract class ComprableMotionListener extends MouseAdapter {
 			int mapaX = mouseX/Gui.spriteSize + Juego.COMIENZO_MAPA;
 			int mapaY = mouseY/Gui.spriteSize;
 			if (Juego.getJuego().getEntidad(mapaX, mapaY)==null) {
-				Aliado e = crearPersonaje(mapaX, mapaY);
+				Entidad e = crearPersonaje(mapaX, mapaY);
 				if (e.getCoste()<=Juego.getJuego().getMonedas()) {
 					Juego.getJuego().setEntidad(mapaX, mapaY, e);
 					Juego.getJuego().agregarEntidad(e);
 					Juego.getJuego().sumarMonedas(-1*e.getCoste());
-				}
-				
+				}				
 			}			
 		}
 	}
@@ -71,6 +69,6 @@ public abstract class ComprableMotionListener extends MouseAdapter {
 		sprite.setBounds(x, y, Gui.spriteSize, Gui.spriteSize);
 	}
 	
-	protected abstract Aliado crearPersonaje(int x, int y);
+	protected abstract Entidad crearPersonaje(int x, int y);
 
 }

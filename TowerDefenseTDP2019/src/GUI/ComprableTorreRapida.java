@@ -2,7 +2,7 @@ package GUI;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import entidades.Aliado;
+import entidades.Entidad;
 import personajes.TorreRapida;
 
 public class ComprableTorreRapida extends ComprableMotionListener {
@@ -14,7 +14,7 @@ public class ComprableTorreRapida extends ComprableMotionListener {
 		gui.getContentPane().add(sprite, 0);
 	}
 
-	protected Aliado crearPersonaje(int x, int y) {
+	protected Entidad crearPersonaje(int x, int y) {
 		return new TorreRapida(x, y);
 	}
 

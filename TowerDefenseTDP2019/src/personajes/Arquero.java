@@ -20,7 +20,7 @@ public class Arquero extends EnemigoDistancia {
 	}
 
 	protected Disparo crearDisparo() {
-		return new DisparoEnemigoTest(x/Gui.spriteSize, y/Gui.spriteSize, alcance);
+		return new DisparoEnemigoTest(x/Gui.spriteSize, y/Gui.spriteSize, alcance, estado);
 	}
 
 }

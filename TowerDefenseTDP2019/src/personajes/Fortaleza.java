@@ -17,7 +17,7 @@ public class Fortaleza extends Aliado {
 	}
 
 	protected Disparo crearDisparo() {
-		return new DisparoFortaleza(x/Gui.spriteSize, y/Gui.spriteSize, alcance);
+		return new DisparoFortaleza(x/Gui.spriteSize, y/Gui.spriteSize, alcance, estado);
 	}
 
 }

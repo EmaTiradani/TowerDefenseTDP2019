@@ -49,4 +49,8 @@ public abstract class Enemigo extends Personaje {
 		x-= velocidad;
 		sprite.setBounds(x, y, Gui.spriteSize, Gui.spriteSize);
 	}
+	
+	public int getCoste() {
+		return puntaje;
+	}
 }

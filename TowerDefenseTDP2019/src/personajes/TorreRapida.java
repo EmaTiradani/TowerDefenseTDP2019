@@ -17,7 +17,7 @@ public class TorreRapida extends Aliado {
 	}
 
 	protected Disparo crearDisparo() {
-		return new DisparoRapido(x/Gui.spriteSize, y/Gui.spriteSize, alcance);
+		return new DisparoRapido(x/Gui.spriteSize, y/Gui.spriteSize, alcance, estado);
 	}
 
 }
