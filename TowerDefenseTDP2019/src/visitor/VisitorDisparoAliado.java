@@ -1,11 +1,11 @@
 package visitor;
 
 import GUI.Gui;
-import entidades.Aliado;
 import entidades.Disparo;
 import entidades.Enemigo;
 import entidades.Entidad;
 import entidades.ObjetoVida;
+import entidades.Personaje;
 
 public class VisitorDisparoAliado extends Visitor{
 	
@@ -15,7 +15,7 @@ public class VisitorDisparoAliado extends Visitor{
 		this.d = d;
 	}
 	
-	public void visit(Aliado entidad) {
+	public void visit(Personaje entidad) {
 	}
 
 	public void visit(Enemigo entidad) {	

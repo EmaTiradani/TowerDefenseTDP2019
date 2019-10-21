@@ -5,11 +5,12 @@ import javax.swing.JLabel;
 
 import GUI.Gui;
 import entidades.DisparoAliado;
+import state.Estado;
 
 public class DisparoAliadoTest extends DisparoAliado {
 
-	public DisparoAliadoTest(int x, int y, int alcance) {
-		super(x, y, 10, 15, alcance);
+	public DisparoAliadoTest(int x, int y, int alcance, Estado estado) {
+		super(x, y, 10, 15, alcance, estado);
 		
 		sprite = new JLabel();
 		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/arrow.png")));

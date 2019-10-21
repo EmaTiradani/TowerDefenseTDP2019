@@ -16,7 +16,7 @@ public class ComprableTorreNormal extends ComprableMotionListener {
 		gui.getContentPane().add(sprite, 0);
 	}
 
-	protected Aliado crearPersonaje(int x, int y) {
+	protected Entidad crearPersonaje(int x, int y) {
 		return new TorreNormal(x, y);
 	}
 

@@ -1,8 +1,8 @@
 package visitor;
 
-import entidades.Aliado;
 import entidades.Enemigo;
 import entidades.ObjetoVida;
+import entidades.Personaje;
 import personajes.Pinches;
 
 public class VisitorPinche extends Visitor {
@@ -13,7 +13,7 @@ public class VisitorPinche extends Visitor {
 		pinches = p;
 	}
 
-	public void visit(Aliado entidad) {
+	public void visit(Personaje entidad) {
 	}
 
 	public void visit(Enemigo entidad) {

@@ -2,12 +2,13 @@ package entidades;
 
 import GUI.Gui;
 import juego.Juego;
+import state.Estado;
 import visitor.VisitorDisparoEnemigo;
 
 public abstract class DisparoEnemigo extends Disparo {
 
-	protected DisparoEnemigo(int x, int y, int dmg, int velocidad, int alcance) {
-		super(x, y, dmg, velocidad);		
+	protected DisparoEnemigo(int x, int y, int dmg, int velocidad, int alcance, Estado estado) {
+		super(x, y, dmg, velocidad, estado);		
 		target = this.x - alcance*Gui.spriteSize;
 		setVisitor();
 	}

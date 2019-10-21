@@ -1,8 +1,8 @@
 package visitor;
 
-import entidades.Aliado;
 import entidades.Enemigo;
 import entidades.ObjetoVida;
+import entidades.Personaje;
 
 public class VisitorEnemigo extends Visitor {
 	
@@ -12,7 +12,7 @@ public class VisitorEnemigo extends Visitor {
 		en = e;
 	}
 	
-	public void visit(Aliado entidad) {
+	public void visit(Personaje entidad) {
 		en.atacar(entidad);
 	}
 

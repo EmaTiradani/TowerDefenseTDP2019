@@ -19,11 +19,16 @@ public class Gui extends JFrame{
 	protected JLabel score;
 	protected JLabel monedas;
 	
+	//Botones torres
 	protected JButton btnTorreBasica;
 	protected JButton btnTorreNormal;
 	protected JButton btnTorreRapida;
 	protected JButton btnFortaleza;
 	protected JButton btnTorreDoble;
+	
+	//Botones objetos comprables
+	protected JButton btnBarricada;
+	protected JButton btnBomba;
 	
 	public Gui() {		
 		//Inicialización del frame
@@ -128,5 +133,23 @@ public class Gui extends JFrame{
 		ma = new ComprableTorreDoble(this);
 		btnTorreDoble.addMouseListener(ma);
 		btnTorreDoble.addMouseMotionListener(ma);
+		
+		//Boton crear Barricada
+		btnBarricada = new JButton();
+		btnBarricada.setBounds(Gui.spriteSize*5, mapa.getHeight() + score.getHeight() + btnTorreBasica.getHeight(), Gui.spriteSize, Gui.spriteSize);
+		btnBarricada.setIcon(new ImageIcon(this.getClass().getResource("/recursos/objetos/barricada.png")));
+		this.getContentPane().add(btnBarricada);		
+		ma = new ComprableBarricada(this);
+		btnBarricada.addMouseListener(ma);
+		btnBarricada.addMouseMotionListener(ma);
+		
+		//Boton crear Bomba
+		btnBomba = new JButton();
+		btnBomba.setBounds(Gui.spriteSize*6, mapa.getHeight() + score.getHeight() + btnTorreBasica.getHeight(), Gui.spriteSize, Gui.spriteSize);
+		btnBomba.setIcon(new ImageIcon(this.getClass().getResource("/recursos/objetos/bomba.png")));
+		this.getContentPane().add(btnBomba);		
+		ma = new ComprableBomba(this);
+		btnBomba.addMouseListener(ma);
+		btnBomba.addMouseMotionListener(ma);
 }
 }

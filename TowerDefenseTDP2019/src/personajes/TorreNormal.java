@@ -18,7 +18,7 @@ public class TorreNormal extends Aliado {
 
 	@Override
 	protected Disparo crearDisparo() {
-		return new DisparoNormal(x/Gui.spriteSize, y/Gui.spriteSize, alcance);
+		return new DisparoNormal(x/Gui.spriteSize, y/Gui.spriteSize, alcance, estado);
 	}
 
 }

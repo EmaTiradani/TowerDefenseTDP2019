@@ -1,12 +1,12 @@
 package visitor;
 
-import entidades.Aliado;
 import entidades.Enemigo;
 import entidades.ObjetoVida;
+import entidades.Personaje;
 
 public class VisitorMatar extends Visitor {
 
-	public void visit(Aliado entidad) {
+	public void visit(Personaje entidad) {
 	}
 
 	public void visit(Enemigo entidad) {

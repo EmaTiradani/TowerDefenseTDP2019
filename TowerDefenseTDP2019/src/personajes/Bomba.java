@@ -9,11 +9,11 @@ import juego.Juego;
 
 public class Bomba extends ObjetoVida {
 
-	public Bomba(int x, int y, int vida) {
-		super(x, y, vida);
+	public Bomba(int x, int y) {
+		super(x, y, 11);
 		
 		sprite = new JLabel();
-		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/bicho enemigo.jpg")));
+		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/objetos/bomba.png")));
 		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
 	}
 	
@@ -40,6 +40,10 @@ public class Bomba extends ObjetoVida {
 				}				
 			}
 		}
+	}
+	
+	public int getCoste() {
+		return 100;
 	}
 	
 }

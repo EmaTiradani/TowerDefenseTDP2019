@@ -43,7 +43,7 @@ public class Juego {
 		gui.agregarEntidad(e);	
 		entidades.add(e);*/
 		
-		Entidad en = new Tanque(Juego.FINAL_MAPA, 2);
+		Entidad en = new Luchador(Juego.FINAL_MAPA, 2);
 		this.setEntidad(Juego.FINAL_MAPA, 2, en);
 		gui.agregarEntidad(en);	
 		entidades.add(en);
@@ -53,10 +53,10 @@ public class Juego {
 		this.setEntidad(Juego.FINAL_MAPA, 3, en);
 		entidades.add(en);*/
 		
-		/*e = new Barricada(14, 3);
+		Entidad e = new Pinches(18, 2);
 		gui.agregarEntidad(e);
 		entidades.add(e);
-		this.setEntidad(14, 3, e);*/
+		//this.setEntidad(14, 2, e);
 
 		new Thread(hilo).start();
 	}
