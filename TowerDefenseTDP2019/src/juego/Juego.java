@@ -48,6 +48,11 @@ public class Juego {
 		gui.agregarEntidad(en);	
 		entidades.add(en);
 		
+		en = new Kamikaze(Juego.FINAL_MAPA, 3);
+		this.setEntidad(Juego.FINAL_MAPA, 3, en);
+		gui.agregarEntidad(en);	
+		entidades.add(en);
+		
 		/*en = new EnemigoRangeTest(Juego.FINAL_MAPA, 3);
 		gui.agregarEntidad(en);	
 		this.setEntidad(Juego.FINAL_MAPA, 3, en);
