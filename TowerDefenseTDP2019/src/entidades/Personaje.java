@@ -59,8 +59,13 @@ public abstract class Personaje extends Entidad implements Atacable {
 		}
 	}
 
-	public void setEstado(Estado e) {
+	public void setEstado(Estado e, float tiempo) {
 		estado = e;
-		cooldownEstado = 10;
+		cooldownEstado = tiempo;
+	}
+
+	public void recuperarVida() {
+		vida = maxVida;
+		actualizarVida();
 	}
 }

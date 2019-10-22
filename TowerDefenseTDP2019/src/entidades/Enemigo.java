@@ -1,9 +1,16 @@
 package entidades;
 
+import java.util.Random;
+
 import javax.swing.Icon;
 
 import GUI.Gui;
 import juego.Juego;
+import personajes.PremioBomba;
+import personajes.PremioOro;
+import personajes.PremioProteccion;
+import personajes.PremioRestaurar;
+import personajes.PremioVelocidad;
 import visitor.Visitor;
 import visitor.VisitorEnemigo;
 
@@ -32,6 +39,12 @@ public abstract class Enemigo extends Personaje {
 	public void morir() {
 		super.morir();
 		Juego.getJuego().sumarPuntos(puntaje);
+		
+		Random r = new Random();
+		int value = r.nextInt(100);
+		if (value<15) {
+			Juego.getJuego().agregarEntidad(dropPremio(r));
+		}
 	}
 
 	public abstract void atacar(Atacable entidad);
@@ -54,5 +67,27 @@ public abstract class Enemigo extends Personaje {
 	
 	public int getCoste() {
 		return puntaje;
+	}
+	
+	protected Objeto dropPremio(Random r) {
+		int value = r.nextInt(100);
+		Objeto premio = null;
+		if (value<20) {
+			premio = new PremioBomba(x/Gui.spriteSize, y/Gui.spriteSize);
+		}
+		else if (value<40) {
+			premio = new PremioOro(x/Gui.spriteSize, y/Gui.spriteSize);
+		}
+		else if (value<60) {
+			premio = new PremioProteccion(x/Gui.spriteSize, y/Gui.spriteSize);
+		}
+		else if (value<80) {
+			premio = new PremioRestaurar(x/Gui.spriteSize, y/Gui.spriteSize);
+		}
+		else {
+			premio = new PremioVelocidad(x/Gui.spriteSize, y/Gui.spriteSize);
+		}
+		
+		return premio;
 	}
 }

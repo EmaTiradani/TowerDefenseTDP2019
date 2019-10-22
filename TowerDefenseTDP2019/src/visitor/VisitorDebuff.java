@@ -17,7 +17,7 @@ public class VisitorDebuff extends Visitor {
 	}
 	
 	public void visit(Enemigo entidad) {
-		entidad.setEstado(debuff);		
+		entidad.setEstado(debuff, 10);		
 	}
 	
 	public void visit(ObjetoVida entidad) {	

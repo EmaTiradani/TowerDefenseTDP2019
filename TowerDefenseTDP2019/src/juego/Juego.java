@@ -36,6 +36,7 @@ public class Juego {
 		crearMapa();
 		gui = new Gui();
 		monedas = 5000; 
+		gui.actualizarMonedas(monedas);
 		
 		//Aliado y Enemigo de prueba
 		/*Entidad e = new AliadoTest(13, 2);
@@ -63,9 +64,9 @@ public class Juego {
 		this.setEntidad(Juego.FINAL_MAPA, 3, en);
 		entidades.add(en);*/
 		
-		/*Entidad e = new Pinches(18, 2);
+		Entidad e = new ArenaMovediza(18, 2);
 		gui.agregarEntidad(e);
-		entidades.add(e);*/
+		entidades.add(e);
 		//this.setEntidad(14, 2, e);
 
 		new Thread(hilo).start();

@@ -3,18 +3,11 @@ package visitor;
 import entidades.Aliado;
 import entidades.Enemigo;
 import entidades.ObjetoVida;
-import state.Estado;
 
-public class VisitorBuff extends Visitor {
-	
-	protected Estado buff;
-	
-	public VisitorBuff(Estado estado) {
-		buff = estado;
-	}
+public class VisitorRestaurador extends Visitor {
 
 	public void visit(Aliado entidad) {
-		entidad.setEstado(buff, 10);
+		entidad.recuperarVida();
 	}
 
 	public void visit(Enemigo entidad) {

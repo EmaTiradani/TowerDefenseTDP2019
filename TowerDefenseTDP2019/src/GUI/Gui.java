@@ -30,6 +30,7 @@ public class Gui extends JFrame{
 	protected JButton btnBarricada;
 	protected JButton btnBomba;
 	protected JButton btnDaño;
+	protected JButton btnHielo;
 	
 	public Gui() {		
 		//Inicialización del frame
@@ -58,7 +59,7 @@ public class Gui extends JFrame{
 		score = new JLabel("Puntaje: " + 0);
 		score.setBounds(0, mapa.getHeight(), 200, 32);
 		this.getContentPane().add(score);
-		monedas = new JLabel("Monedas: " + 50);
+		monedas = new JLabel();
 		monedas.setBounds(score.getWidth(), mapa.getHeight(), 200, 32);
 		this.getContentPane().add(monedas);
 		
@@ -153,13 +154,20 @@ public class Gui extends JFrame{
 		btnBomba.addMouseListener(ma);
 		btnBomba.addMouseMotionListener(ma);
 		
-		//Boton crear power up mas daño
+		//Boton crear power up: mas daño
 		btnDaño = new JButton();
 		btnDaño.setBounds(Gui.spriteSize*7, mapa.getHeight() + score.getHeight() + btnTorreBasica.getHeight(), Gui.spriteSize, Gui.spriteSize);
 		btnDaño.setIcon(new ImageIcon(this.getClass().getResource("/recursos/objetos/ataque.png")));
 		this.getContentPane().add(btnDaño);		
 		ma = new ComprableDaño(this);
 		btnDaño.addMouseListener(ma);
-		btnDaño.addMouseMotionListener(ma);
+		
+		//Boton crear power up: reducir velocidad a enemigos
+		btnHielo = new JButton();
+		btnHielo.setBounds(Gui.spriteSize*8, mapa.getHeight() + score.getHeight() + btnTorreBasica.getHeight(), Gui.spriteSize, Gui.spriteSize);
+		btnHielo.setIcon(new ImageIcon(this.getClass().getResource("/recursos/objetos/hielo.png")));
+		this.getContentPane().add(btnHielo);		
+		ma = new ComprableHielo(this);
+		btnHielo.addMouseListener(ma);
 	}
 }
