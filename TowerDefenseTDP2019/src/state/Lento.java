@@ -1,24 +1,20 @@
 package state;
 
-public class Fuerte extends Estado {
-
-	public Fuerte() {		
-	}
+public class Lento extends Estado {
 	
+	public Lento() {		
+	}
+
 	public float getDaño(float dañoBase) {
-		return dañoBase*1.5f;
+		return dañoBase;
 	}
 
 	public int getVelocidad(int velBase) {
-		return velBase;
+		return velBase/2;
 	}
 
 	public float recibirDaño(float dañoBase) {
 		return dañoBase;
-	}
-	
-	public int getCoste() {
-		return 20;
 	}
 
 }

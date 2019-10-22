@@ -47,8 +47,7 @@ public class Pinches extends ObjetoTemporal {
 	public void atacar(Enemigo entidad) {
 		if (cooldownActual<=0) {
 			entidad.recibirDaño(daño);		
-			cooldownActual = cooldownAtaque;
-			System.out.println("Pegar");			
+			cooldownActual = cooldownAtaque;		
 		}
 	}
 

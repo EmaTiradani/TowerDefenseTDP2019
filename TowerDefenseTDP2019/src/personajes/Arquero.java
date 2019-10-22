@@ -17,6 +17,7 @@ public class Arquero extends EnemigoDistancia {
 		sprite = new JLabel();
 		sprite.setIcon(spriteMovimiento);
 		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
+		agregarBarraVida();
 	}
 
 	protected Disparo crearDisparo() {

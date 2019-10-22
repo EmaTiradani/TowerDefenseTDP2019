@@ -14,9 +14,9 @@ public class TorreNormal extends Aliado {
 		sprite = new JLabel();
 		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/aliados/aliado01.png")));
 		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
+		agregarBarraVida();
 	}
 
-	@Override
 	protected Disparo crearDisparo() {
 		return new DisparoNormal(x/Gui.spriteSize, y/Gui.spriteSize, alcance, estado);
 	}

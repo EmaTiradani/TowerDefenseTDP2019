@@ -41,12 +41,14 @@ public abstract class Enemigo extends Personaje {
 			sprite.setIcon(spriteMovimiento);
 		}
 		
-		if ((x-velocidad)/Gui.spriteSize<x/Gui.spriteSize) {
+		int velActual = estado.getVelocidad(velocidad);
+		
+		if ((x-velActual)/Gui.spriteSize<x/Gui.spriteSize) {
 			//Cambio de celda en el mapa
 			Juego.getJuego().setEntidad(x/Gui.spriteSize, y/Gui.spriteSize, null);
-			Juego.getJuego().setEntidad((x-velocidad)/Gui.spriteSize, y/Gui.spriteSize, this);
+			Juego.getJuego().setEntidad((x-velActual)/Gui.spriteSize, y/Gui.spriteSize, this);
 		}
-		x-= velocidad;
+		x-= velActual;
 		sprite.setBounds(x, y, Gui.spriteSize, Gui.spriteSize);
 	}
 	

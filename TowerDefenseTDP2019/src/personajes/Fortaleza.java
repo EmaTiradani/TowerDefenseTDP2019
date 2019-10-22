@@ -14,6 +14,7 @@ public class Fortaleza extends Aliado {
 		sprite = new JLabel();
 		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/aliados/aliado04.png")));
 		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
+		agregarBarraVida();
 	}
 
 	protected Disparo crearDisparo() {

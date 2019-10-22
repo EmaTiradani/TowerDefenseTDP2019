@@ -14,6 +14,7 @@ public class Tanque extends EnemigoCerca {
 		spriteAtaque = new ImageIcon(this.getClass().getResource("/recursos/enemigos/enemigo03_attack.gif"));
 		sprite = new JLabel();
 		sprite.setIcon(spriteMovimiento);
-		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);				
+		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);	
+		agregarBarraVida();
 	}
 }

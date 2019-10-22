@@ -25,7 +25,7 @@ public abstract class DisparoAliado extends Disparo{
 	}
 
 	public void mover() {
-		x+= velocidad;
+		x+= estado.getVelocidad(velocidad);
 		sprite.setBounds(x, y, Gui.spriteSize, Gui.spriteSize);
 		if (x>=target) {
 			morir();

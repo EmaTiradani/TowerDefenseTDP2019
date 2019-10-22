@@ -14,6 +14,7 @@ public class Jefe extends EnemigoDistancia {
 		sprite = new JLabel();
 		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/goblin.png")));
 		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
+		agregarBarraVida();
 	}
 
 	protected Disparo crearDisparo() {

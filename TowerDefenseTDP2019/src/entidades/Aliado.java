@@ -31,6 +31,7 @@ public abstract class Aliado extends Personaje {
 
 	public void accion(float estimatedTime) {
 		cooldownActual -= estimatedTime;
+		actualizarEstado(estimatedTime);
 		Entidad e;
 		for (int i=1; i<=alcance; i++) {
 			e = Juego.getJuego().getEntidad(x/Gui.spriteSize + i, y/Gui.spriteSize);					

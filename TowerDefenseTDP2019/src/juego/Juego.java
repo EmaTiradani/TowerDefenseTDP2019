@@ -35,7 +35,7 @@ public class Juego {
 	public void comenzarJuego() {
 		crearMapa();
 		gui = new Gui();
-		monedas = 50; 
+		monedas = 5000; 
 		
 		//Aliado y Enemigo de prueba
 		/*Entidad e = new AliadoTest(13, 2);
@@ -43,24 +43,29 @@ public class Juego {
 		gui.agregarEntidad(e);	
 		entidades.add(e);*/
 		
-		Entidad en = new Luchador(Juego.FINAL_MAPA, 2);
+		Entidad en = new Minion(Juego.FINAL_MAPA, 2);
 		this.setEntidad(Juego.FINAL_MAPA, 2, en);
 		gui.agregarEntidad(en);	
 		entidades.add(en);
 		
-		en = new Kamikaze(Juego.FINAL_MAPA, 3);
-		this.setEntidad(Juego.FINAL_MAPA, 3, en);
+		en = new Minion(Juego.FINAL_MAPA-1, 2);
+		this.setEntidad(Juego.FINAL_MAPA-1, 2, en);
 		gui.agregarEntidad(en);	
 		entidades.add(en);
+		
+		/*en = new Kamikaze(Juego.FINAL_MAPA, 3);
+		this.setEntidad(Juego.FINAL_MAPA, 3, en);
+		gui.agregarEntidad(en);	
+		entidades.add(en);*/
 		
 		/*en = new EnemigoRangeTest(Juego.FINAL_MAPA, 3);
 		gui.agregarEntidad(en);	
 		this.setEntidad(Juego.FINAL_MAPA, 3, en);
 		entidades.add(en);*/
 		
-		Entidad e = new Pinches(18, 2);
+		/*Entidad e = new Pinches(18, 2);
 		gui.agregarEntidad(e);
-		entidades.add(e);
+		entidades.add(e);*/
 		//this.setEntidad(14, 2, e);
 
 		new Thread(hilo).start();

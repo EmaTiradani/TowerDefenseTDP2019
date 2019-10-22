@@ -6,7 +6,7 @@ import visitor.Visitor;
 
 public abstract class Disparo extends Entidad {
 	
-	protected int dmg;
+	protected float dmg;
 	protected int velocidad;
 	protected int target; //Punto maximo donde puede llegar el disparo
 	protected Estado estado;
@@ -23,14 +23,18 @@ public abstract class Disparo extends Entidad {
 		
 	}
 
-	public int getDaño() {
-		return dmg;		
+	public float getDaño() {
+		return estado.getDaño(dmg);		
 	}
 	
 	public abstract void mover();
 	
 	public int getCoste() {
 		return 0;
+	}
+	
+	public void setEstado(Estado e) {
+		estado = e;
 	}
 
 }

@@ -19,12 +19,13 @@ public abstract class EnemigoCerca extends Enemigo {
 		
 		if (cooldownActual<=0) {
 			cooldownActual = cooldownAtaque;	
-			a.recibirDaño(daño);
+			a.recibirDaño(estado.getDaño(daño));
 		}
 	}
 
 	public void accion(float estimatedTime) {
-		cooldownActual -= estimatedTime;		
+		cooldownActual -= estimatedTime;	
+		actualizarEstado(estimatedTime);
 		if ((x-velocidad)/Gui.spriteSize<x/Gui.spriteSize) {
 			//Intento ir a la siguiente celda
 			Entidad e = Juego.getJuego().getEntidad((x-velocidad)/Gui.spriteSize, y/Gui.spriteSize);

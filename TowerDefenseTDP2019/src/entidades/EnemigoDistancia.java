@@ -27,6 +27,7 @@ public abstract class EnemigoDistancia extends Enemigo {
 
 	public void accion(float estimatedTime) {
 		cooldownActual -= estimatedTime;
+		actualizarEstado(estimatedTime);
 		Entidad e;
 		if (x/Gui.spriteSize<Juego.FINAL_MAPA) {
 			for (int i=1; i<=alcance; i++) {

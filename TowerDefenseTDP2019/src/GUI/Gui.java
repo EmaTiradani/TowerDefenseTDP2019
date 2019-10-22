@@ -29,6 +29,7 @@ public class Gui extends JFrame{
 	//Botones objetos comprables
 	protected JButton btnBarricada;
 	protected JButton btnBomba;
+	protected JButton btnDaño;
 	
 	public Gui() {		
 		//Inicialización del frame
@@ -151,5 +152,14 @@ public class Gui extends JFrame{
 		ma = new ComprableBomba(this);
 		btnBomba.addMouseListener(ma);
 		btnBomba.addMouseMotionListener(ma);
-}
+		
+		//Boton crear power up mas daño
+		btnDaño = new JButton();
+		btnDaño.setBounds(Gui.spriteSize*7, mapa.getHeight() + score.getHeight() + btnTorreBasica.getHeight(), Gui.spriteSize, Gui.spriteSize);
+		btnDaño.setIcon(new ImageIcon(this.getClass().getResource("/recursos/objetos/ataque.png")));
+		this.getContentPane().add(btnDaño);		
+		ma = new ComprableDaño(this);
+		btnDaño.addMouseListener(ma);
+		btnDaño.addMouseMotionListener(ma);
+	}
 }
