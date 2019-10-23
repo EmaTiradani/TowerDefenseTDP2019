@@ -17,12 +17,11 @@ public class Juego {
 	protected Celda[][] nivel;
 	protected Collection<Entidad> entidades;
 	protected HiloEntidades hilo;
+	protected HiloOleadas oleadas;
 	protected int puntaje;
 	protected int monedas;
 		
 	protected Juego() {
-		entidades = new ConcurrentLinkedQueue<>();
-		hilo = new HiloEntidades();
 	}	
 	
 	public static Juego getJuego() {
@@ -33,43 +32,23 @@ public class Juego {
 	}
 	
 	public void comenzarJuego() {
+		entidades = new ConcurrentLinkedQueue<>();
+		hilo = new HiloEntidades();
+		new Thread(hilo).start();
+		
 		crearMapa();
 		gui = new Gui();
+		
+		oleadas = new HiloOleadas(gui);
+		new Thread(oleadas).start();
+		
 		monedas = 5000; 
 		gui.actualizarMonedas(monedas);
-		
-		//Aliado y Enemigo de prueba
-		/*Entidad e = new AliadoTest(13, 2);
-		this.setEntidad(13, 2, e);
-		gui.agregarEntidad(e);	
-		entidades.add(e);*/
-		
-		Entidad en = new Minion(Juego.FINAL_MAPA, 2);
-		this.setEntidad(Juego.FINAL_MAPA, 2, en);
-		gui.agregarEntidad(en);	
-		entidades.add(en);
-		
-		en = new Minion(Juego.FINAL_MAPA-1, 2);
-		this.setEntidad(Juego.FINAL_MAPA-1, 2, en);
-		gui.agregarEntidad(en);	
-		entidades.add(en);
-		
-		/*en = new Kamikaze(Juego.FINAL_MAPA, 3);
-		this.setEntidad(Juego.FINAL_MAPA, 3, en);
-		gui.agregarEntidad(en);	
-		entidades.add(en);*/
-		
-		/*en = new EnemigoRangeTest(Juego.FINAL_MAPA, 3);
-		gui.agregarEntidad(en);	
-		this.setEntidad(Juego.FINAL_MAPA, 3, en);
-		entidades.add(en);*/
-		
-		Entidad e = new ArenaMovediza(18, 2);
-		gui.agregarEntidad(e);
-		entidades.add(e);
-		//this.setEntidad(14, 2, e);
 
-		new Thread(hilo).start();
+		
+		for (int i=0; i<6; i++) {
+			agregarEntidad(new GameOverFlag(Juego.COMIENZO_MAPA-2, i));
+		}
 	}
 	
 	public boolean celdaEstaOcupada(int x, int y) {
@@ -136,6 +115,15 @@ public class Juego {
 	public void sumarMonedas(int i) {
 		monedas += i;
 		gui.actualizarMonedas(monedas);		
+	}
+	
+	public void perder() {
+		hilo.setGameOver(true);
+		oleadas.setGameOver(true);
+		for (Entidad e : entidades) {
+			matar(e);
+		}
+		gui.perder();
 	}
 
 }

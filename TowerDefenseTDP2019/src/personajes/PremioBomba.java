@@ -26,10 +26,13 @@ public class PremioBomba extends Premio {
 		Entidad e;
 		for (int i=-1; i<=1; i++) {
 			for (int j=-1; j<=1; j++) {
-				e = Juego.getJuego().getEntidad(mapaX + i, mapaY + j); 
-				if (e!=null) {
-					e.morir();
+				if (mapaY+j>=0 && mapaY+j<6) {
+					e = Juego.getJuego().getEntidad(mapaX + i, mapaY + j); 
+					if (e!=null) {
+						e.morir();
+					}
 				}
+				
 			}
 		}
 	}

@@ -52,7 +52,7 @@ public class Gui extends JFrame{
 		//Mapa
 		mapa = new JLabel();
 		mapa.setBounds(-Gui.spriteSize*Juego.COMIENZO_MAPA,0, Gui.spriteSize*20, Gui.spriteSize*6);
-		mapa.setIcon(new ImageIcon(this.getClass().getResource("/recursos/game ground2.jpg")));	
+		//mapa.setIcon(new ImageIcon(this.getClass().getResource("/recursos/game ground2.jpg")));	
 		this.getContentPane().add(mapa);
 		
 		//Puntaje y monedas
@@ -82,10 +82,18 @@ public class Gui extends JFrame{
 		this.monedas.setText("Monedas: " + monedas);
 		this.monedas.repaint();
 	}
+	
+	public void cambiarNivel(int i) {
+		mapa.setIcon(new ImageIcon(this.getClass().getResource("/recursos/nivel_" + i + ".jpg")));
+	}
 
 	public void remove(Entidad entidad) {
 		mapa.remove(entidad.getSprite());
 		mapa.repaint();
+	}
+	
+	public void perder() {
+		System.out.println("Perdiste");
 	}
 	
 	protected void agregarBotonesComprables() {
