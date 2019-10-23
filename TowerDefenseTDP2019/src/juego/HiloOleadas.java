@@ -5,6 +5,7 @@ import java.util.Random;
 import GUI.Gui;
 import entidades.Enemigo;
 import personajes.Arquero;
+import personajes.Jefe;
 import personajes.Luchador;
 import personajes.Minion;
 import personajes.Tanque;
@@ -77,7 +78,7 @@ public class HiloOleadas implements Runnable {
 			e = new Minion(Juego.FINAL_MAPA, y);
 		}
 		else if (value<50) {
-			e = new Luchador(Juego.FINAL_MAPA, y);
+			e = new Jefe(Juego.FINAL_MAPA, y);
 		}
 		else if (value<60) {
 			e = new Tanque(Juego.FINAL_MAPA, y);

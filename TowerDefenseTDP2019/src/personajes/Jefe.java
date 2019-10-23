@@ -4,22 +4,17 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import GUI.Gui;
-import entidades.Disparo;
-import entidades.EnemigoDistancia;
+import entidades.EnemigoCerca;
 
-public class Jefe extends EnemigoDistancia {
+public class Jefe extends EnemigoCerca {
 	public Jefe(int x, int y) {
-		super(x, y, 30, 1, 4, 6, 100);
+		super(x, y, 700, 12, 2, 100, 100);
 		
+		spriteMovimiento = new ImageIcon(this.getClass().getResource("/recursos/enemigos/jeve_move.gif"));
+		spriteAtaque = new ImageIcon(this.getClass().getResource("/recursos/enemigos/jefeattack.gif"));
 		sprite = new JLabel();
-		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/goblin.png")));
-		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
+		sprite.setIcon(spriteMovimiento);
+		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);	
 		agregarBarraVida();
 	}
-
-	protected Disparo crearDisparo() {
-		return new DisparoEnemigoTest(x/Gui.spriteSize, y/Gui.spriteSize, alcance, estado);
-	}
-
-
 }
