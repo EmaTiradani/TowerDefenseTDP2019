@@ -12,10 +12,10 @@ import visitor.VisitorArena;
 public class ArenaMovediza extends ObjetoTemporal {
 
 	public ArenaMovediza(int x, int y) {
-		super(x, y, 10);
+		super(x, y, 20);
 
 		sprite = new JLabel();
-		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/objetos/pinches.png")));
+		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/objetos/barro.png")));
 		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
 		
 		miVisitor = new VisitorArena();

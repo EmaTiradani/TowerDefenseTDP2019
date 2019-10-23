@@ -2,7 +2,7 @@ package entidades;
 
 import java.awt.event.MouseListener;
 
-import GUI.PremioListener;
+import listeners.PremioListener;
 import visitor.Visitor;
 
 public abstract class Premio extends Objeto {

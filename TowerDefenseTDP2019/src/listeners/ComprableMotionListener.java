@@ -1,4 +1,4 @@
-package GUI;
+package listeners;
 
 import java.awt.MouseInfo;
 import java.awt.Point;
@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 
+import GUI.Gui;
 import entidades.Entidad;
 import juego.Juego;
 

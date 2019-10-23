@@ -12,6 +12,8 @@ public class Juego {
 	protected static Juego INSTANCE = null;
 	public static int COMIENZO_MAPA = 10; //Columna inicial del juego.
 	public static int FINAL_MAPA = 20; //Columna final del juego. Es aca donde los enemigos empiezan a aparecer
+	public static int FILAS_MAPA = 6;
+	protected static int MONEDAS_INCIAL = 200;
 	
 	protected Gui gui;
 	protected Celda[][] nivel;
@@ -42,7 +44,22 @@ public class Juego {
 		oleadas = new HiloOleadas(gui);
 		new Thread(oleadas).start();
 		
-		monedas = 5000; 
+		monedas = Juego.MONEDAS_INCIAL; 
+		gui.actualizarMonedas(monedas);
+		
+		for (int i=0; i<6; i++) {
+			agregarEntidad(new GameOverFlag(Juego.COMIENZO_MAPA-2, i));
+		}
+	}
+	
+	public void reinciarJuego() {
+		hilo = new HiloEntidades();
+		new Thread(hilo).start();
+		oleadas = new HiloOleadas(gui);
+		new Thread(oleadas).start();
+		
+		gui.reinciarJuego();
+		monedas = Juego.MONEDAS_INCIAL;
 		gui.actualizarMonedas(monedas);
 		
 		for (int i=0; i<6; i++) {
@@ -132,6 +149,13 @@ public class Juego {
 			matar(e);
 		}
 		gui.ganar();
+	}
+
+	public void nuevoNivel() {
+		for (Entidad e : entidades) {
+			matar(e);
+		}
+		monedas = Juego.MONEDAS_INCIAL;
 	}
 
 }

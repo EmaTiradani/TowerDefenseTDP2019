@@ -1,6 +1,5 @@
 package entidades;
 
-import GUI.Gui;
 import state.Estado;
 import visitor.Visitor;
 

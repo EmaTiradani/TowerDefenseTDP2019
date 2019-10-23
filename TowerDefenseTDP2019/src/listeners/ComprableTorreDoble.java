@@ -1,4 +1,4 @@
-package GUI;
+package listeners;
 
 import java.awt.MouseInfo;
 import java.awt.Point;
@@ -7,12 +7,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 
+import GUI.Gui;
 import entidades.Entidad;
 import personajes.TorreDoble;
 
 public class ComprableTorreDoble extends ComprableMotionListener {
 
-	protected ComprableTorreDoble(Gui gui) {
+	public ComprableTorreDoble(Gui gui) {
 		super(gui);
 		sprite = new JLabel(new ImageIcon(this.getClass().getResource("/recursos/aliados/aliado_doble01.png")));
 		sprite.setVisible(false);

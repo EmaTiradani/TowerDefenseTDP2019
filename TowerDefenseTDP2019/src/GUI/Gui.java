@@ -1,6 +1,8 @@
 package GUI;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
@@ -8,8 +10,20 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+
 import entidades.Entidad;
 import juego.Juego;
+import listeners.ComprableBarricada;
+import listeners.ComprableBomba;
+import listeners.ComprableDaño;
+import listeners.ComprableFortaleza;
+import listeners.ComprableHielo;
+import listeners.ComprableTorreBasica;
+import listeners.ComprableTorreDoble;
+import listeners.ComprableTorreNormal;
+import listeners.ComprableTorreRapida;
+import listeners.ReiniciarJuegoListener;
 
 public class Gui extends JFrame{
 	protected JLabel mapa;	
@@ -31,6 +45,8 @@ public class Gui extends JFrame{
 	protected JButton btnBomba;
 	protected JButton btnDaño;
 	protected JButton btnHielo;
+	
+	protected JLabel mensajeFinal;
 	
 	public Gui() {		
 		//Inicialización del frame
@@ -63,6 +79,16 @@ public class Gui extends JFrame{
 		monedas.setBounds(score.getWidth(), mapa.getHeight(), 200, 32);
 		this.getContentPane().add(monedas);
 		
+		//Mensaje victoria/derrota
+		mensajeFinal = new JLabel();
+		mensajeFinal.setBounds(ancho/2-200, altura/3, 400, 75);
+		mensajeFinal.setVisible(false);
+		mensajeFinal.setFont(new Font("Arial", Font.BOLD, 32));
+		mensajeFinal.setHorizontalAlignment(SwingConstants.CENTER);
+		mensajeFinal.setVerticalAlignment(SwingConstants.CENTER);
+		mensajeFinal.addMouseListener(new ReiniciarJuegoListener());
+		this.getContentPane().add(mensajeFinal, 0);
+		
 		this.agregarBotonesComprables();
 
 		this.repaint();
@@ -92,12 +118,23 @@ public class Gui extends JFrame{
 		mapa.repaint();
 	}
 	
+	public void reinciarJuego() {
+		mensajeFinal.setVisible(false);
+		mensajeFinal.repaint();
+	}
+	
 	public void perder() {
-		System.out.println("Perdiste");
+		mensajeFinal.setText("<html>PERDISTE<br>Click aca para reiniciar</html>");
+		mensajeFinal.setForeground(Color.RED);
+		mensajeFinal.setVisible(true);
+		mensajeFinal.repaint();
 	}
 	
 	public void ganar() {
-		System.out.println("Ganaste");
+		mensajeFinal.setText("GANASTE");
+		mensajeFinal.setForeground(Color.BLUE);
+		mensajeFinal.setVisible(true);
+		mensajeFinal.repaint();
 	}
 	
 	protected void agregarBotonesComprables() {
@@ -181,5 +218,5 @@ public class Gui extends JFrame{
 		this.getContentPane().add(btnHielo);		
 		ma = new ComprableHielo(this);
 		btnHielo.addMouseListener(ma);
-	}
+	}	
 }
