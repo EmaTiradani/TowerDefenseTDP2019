@@ -1,14 +1,15 @@
-package GUI;
+package listeners;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import GUI.Gui;
 import entidades.Entidad;
 import personajes.TorreNormal;
 
 public class ComprableTorreNormal extends ComprableMotionListener {
 
-	protected ComprableTorreNormal(Gui gui) {
+	public ComprableTorreNormal(Gui gui) {
 		super(gui);
 		sprite = new JLabel(new ImageIcon(this.getClass().getResource("/recursos/aliados/aliado01.png")));
 		sprite.setVisible(false);

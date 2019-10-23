@@ -1,13 +1,15 @@
-package GUI;
+package listeners;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
+import GUI.Gui;
 import entidades.Entidad;
 import personajes.TorreRapida;
 
 public class ComprableTorreRapida extends ComprableMotionListener {
 
-	protected ComprableTorreRapida(Gui gui) {
+	public ComprableTorreRapida(Gui gui) {
 		super(gui);
 		sprite = new JLabel(new ImageIcon(this.getClass().getResource("/recursos/aliados/aliado03.png")));
 		sprite.setVisible(false);

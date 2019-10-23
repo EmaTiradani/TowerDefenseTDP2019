@@ -1,14 +1,15 @@
-package GUI;
+package listeners;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import GUI.Gui;
 import entidades.Entidad;
 import personajes.Bomba;
 
 public class ComprableBomba extends ComprableMotionListener {
 
-	protected ComprableBomba(Gui gui) {
+	public ComprableBomba(Gui gui) {
 		super(gui);
 		sprite = new JLabel(new ImageIcon(this.getClass().getResource("/recursos/objetos/bomba.png")));
 		sprite.setVisible(false);

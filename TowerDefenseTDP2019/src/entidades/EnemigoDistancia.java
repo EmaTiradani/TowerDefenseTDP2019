@@ -2,7 +2,6 @@ package entidades;
 
 import GUI.Gui;
 import juego.Juego;
-import visitor.VisitorEnemigo;
 import visitor.VisitorEnemigoDistancia;
 
 public abstract class EnemigoDistancia extends Enemigo {

@@ -1,14 +1,15 @@
-package GUI;
+package listeners;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import GUI.Gui;
 import entidades.Entidad;
 import personajes.Fortaleza;
 
 public class ComprableFortaleza extends ComprableMotionListener {
 
-	protected ComprableFortaleza(Gui gui) {
+	public ComprableFortaleza(Gui gui) {
 		super(gui);
 		sprite = new JLabel(new ImageIcon(this.getClass().getResource("/recursos/aliados/aliado04.png")));
 		sprite.setVisible(false);

@@ -1,8 +1,9 @@
-package GUI;
+package listeners;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import GUI.Gui;
 import entidades.Entidad;
 import personajes.Barricada;
 
