@@ -58,11 +58,18 @@ public abstract class Enemigo extends Personaje {
 		
 		if ((x-velActual)/Gui.spriteSize<x/Gui.spriteSize) {
 			//Cambio de celda en el mapa
-			Juego.getJuego().setEntidad(x/Gui.spriteSize, y/Gui.spriteSize, null);
-			Juego.getJuego().setEntidad((x-velActual)/Gui.spriteSize, y/Gui.spriteSize, this);
+			if (Juego.getJuego().getEntidad((x-velActual)/Gui.spriteSize, y/Gui.spriteSize)==null) {//No hay entidad en la siguiente celda
+				Juego.getJuego().setEntidad(x/Gui.spriteSize, y/Gui.spriteSize, null);
+				Juego.getJuego().setEntidad((x-velActual)/Gui.spriteSize, y/Gui.spriteSize, this);
+				x-= velActual;
+				sprite.setBounds(x, y, Gui.spriteSize, Gui.spriteSize);
+			}			
 		}
-		x-= velActual;
-		sprite.setBounds(x, y, Gui.spriteSize, Gui.spriteSize);
+		else { //Movimiento normal
+			x-= velActual;
+			sprite.setBounds(x, y, Gui.spriteSize, Gui.spriteSize);
+		}
+		
 	}
 	
 	public int getCoste() {

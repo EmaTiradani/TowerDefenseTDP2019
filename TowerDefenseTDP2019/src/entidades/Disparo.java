@@ -12,8 +12,7 @@ public abstract class Disparo extends Entidad {
 	protected Estado estado;
 	
 	protected Disparo(int x, int y, int dmg, int velocidad, Estado estado) {
-		super(x, y);
-		this.x += Gui.spriteSize/2; //Ubica el inicio del disparo en el centro de la celda
+		super(x, y);		
 		this.dmg = dmg;
 		this.velocidad = velocidad;
 		this.estado = estado;

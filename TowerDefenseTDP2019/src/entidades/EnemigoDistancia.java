@@ -2,6 +2,8 @@ package entidades;
 
 import GUI.Gui;
 import juego.Juego;
+import visitor.VisitorEnemigo;
+import visitor.VisitorEnemigoDistancia;
 
 public abstract class EnemigoDistancia extends Enemigo {
 	
@@ -10,6 +12,10 @@ public abstract class EnemigoDistancia extends Enemigo {
 	protected EnemigoDistancia(int x, int y, int vida, int cooldown, int vel, int alcance, int puntaje) {
 		super(x, y, vida, vel, cooldown, puntaje);
 		this.alcance = alcance;
+	}
+	
+	protected void setVisitor() {
+		miVisitor = new VisitorEnemigoDistancia(this);
 	}
 	
 	public void atacar(Atacable a) {
@@ -38,9 +44,12 @@ public abstract class EnemigoDistancia extends Enemigo {
 			}
 		}
 		if (cooldownActual<=0) {
-			mover();			
-		}
-		
+			mover();
+		}		
+	}
+	
+	public int getAlcance() {
+		return alcance;
 	}
 
 }

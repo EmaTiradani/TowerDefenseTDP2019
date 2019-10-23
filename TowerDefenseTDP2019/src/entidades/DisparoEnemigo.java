@@ -9,7 +9,8 @@ public abstract class DisparoEnemigo extends Disparo {
 
 	protected DisparoEnemigo(int x, int y, int dmg, int velocidad, int alcance, Estado estado) {
 		super(x, y, dmg, velocidad, estado);		
-		target = this.x - alcance*Gui.spriteSize;
+		target = this.x - (alcance*Gui.spriteSize - Gui.spriteSize/2);
+		this.x -= Gui.spriteSize/2; //Ubica el inicio del disparo en el centro de la celda
 		setVisitor();
 	}
 

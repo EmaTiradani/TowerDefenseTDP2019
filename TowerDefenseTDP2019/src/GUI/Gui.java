@@ -96,6 +96,10 @@ public class Gui extends JFrame{
 		System.out.println("Perdiste");
 	}
 	
+	public void ganar() {
+		System.out.println("Ganaste");
+	}
+	
 	protected void agregarBotonesComprables() {
 		MouseAdapter ma;
 		

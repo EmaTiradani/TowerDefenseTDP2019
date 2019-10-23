@@ -44,7 +44,6 @@ public class Juego {
 		
 		monedas = 5000; 
 		gui.actualizarMonedas(monedas);
-
 		
 		for (int i=0; i<6; i++) {
 			agregarEntidad(new GameOverFlag(Juego.COMIENZO_MAPA-2, i));
@@ -124,6 +123,15 @@ public class Juego {
 			matar(e);
 		}
 		gui.perder();
+	}
+
+	public void ganar() {
+		hilo.setGameOver(true);
+		oleadas.setGameOver(true);
+		for (Entidad e : entidades) {
+			matar(e);
+		}
+		gui.ganar();
 	}
 
 }

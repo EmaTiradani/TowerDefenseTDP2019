@@ -25,14 +25,14 @@ public class HiloOleadas implements Runnable {
 	}
 	
 	protected void siguienteNivel() {
-		if (nivel==2) {
-			//Ganar
+		if (nivel==1) {
+			Juego.getJuego().ganar();
 		}
 		else {
 			nivel++;
 			gui.cambiarNivel(nivel);
 			oleada = 1;
-			timerOleada = 30;			
+			timerOleada = 5;			
 		}
 	}
 	
@@ -71,10 +71,10 @@ public class HiloOleadas implements Runnable {
 		int y  = r.nextInt(6);
 		int value = r.nextInt(100);
 		
-		Enemigo e = new Minion(Juego.FINAL_MAPA, 0); //Constructor temporal para testear la oleada en una sola fila
+		Enemigo e = new Arquero(Juego.FINAL_MAPA, 0); //Constructor temporal para testear la oleada en una sola fila
 		
 		if (value<30) {
-			e = new Arquero(Juego.FINAL_MAPA, y);
+			e = new Minion(Juego.FINAL_MAPA, y);
 		}
 		else if (value<50) {
 			e = new Luchador(Juego.FINAL_MAPA, y);
