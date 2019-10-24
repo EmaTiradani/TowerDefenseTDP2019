@@ -70,7 +70,6 @@ public class Gui extends JFrame{
 		//Mapa
 		mapa = new JLabel();
 		mapa.setBounds(-Gui.spriteSize*Juego.COMIENZO_MAPA,0, Gui.spriteSize*20, Gui.spriteSize*6);
-		//mapa.setIcon(new ImageIcon(this.getClass().getResource("/recursos/game ground2.jpg")));	
 		this.getContentPane().add(mapa);
 		
 		//Puntaje y monedas

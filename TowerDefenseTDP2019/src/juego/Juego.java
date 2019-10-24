@@ -156,6 +156,7 @@ public class Juego {
 			matar(e);
 		}
 		monedas = Juego.MONEDAS_INCIAL;
+		gui.actualizarMonedas(monedas);
 	}
 
 }
