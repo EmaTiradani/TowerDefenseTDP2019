@@ -49,4 +49,10 @@ public class TorreDoble extends Aliado {
 		}		
 	}
 	
+	public void morir() {
+		super.morir();
+		Juego.getJuego().setEntidad(x/Gui.spriteSize, (y/Gui.spriteSize)+1, null);
+		
+	}
+	
 }

@@ -20,7 +20,7 @@ public class BarricadaConPinches extends ObjetoVida{
 	public BarricadaConPinches(int x, int y) {
 		super(x, y, 100);
 		
-		daño = 2;
+		daño = 20;
 		cooldownAtaque = 0.2f;
 		cooldownActual = 0;
 		

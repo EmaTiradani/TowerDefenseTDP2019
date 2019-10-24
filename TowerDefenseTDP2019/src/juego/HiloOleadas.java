@@ -82,7 +82,8 @@ public class HiloOleadas implements Runnable {
 		int y  = r.nextInt(6);
 		int value = r.nextInt(100);
 		
-		Enemigo e = new Minion(Juego.FINAL_MAPA, y); //Constructor temporal para testear la oleada en una sola fila
+		//Enemigo e = new Minion(Juego.FINAL_MAPA, y); //Constructor temporal para testear la oleada en una sola fila
+		Enemigo e = null;
 		
 		if (value<30) {
 			e = new Minion(Juego.FINAL_MAPA, y);

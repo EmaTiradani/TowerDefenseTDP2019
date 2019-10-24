@@ -8,7 +8,7 @@ import entidades.EnemigoCerca;
 
 public class Jefe extends EnemigoCerca {
 	public Jefe(int x, int y) {
-		super(x, y, 700, 12, 2, 100, 100);
+		super(x, y, 400, 10, 4, 50, 150);
 		
 		spriteMovimiento = new ImageIcon(this.getClass().getResource("/recursos/enemigos/jeve_move.gif"));
 		spriteAtaque = new ImageIcon(this.getClass().getResource("/recursos/enemigos/jefeattack.gif"));

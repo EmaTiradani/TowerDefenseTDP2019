@@ -9,6 +9,7 @@ import javax.swing.SwingUtilities;
 
 import GUI.Gui;
 import entidades.Entidad;
+import juego.Juego;
 import personajes.TorreDoble;
 
 public class ComprableTorreDoble extends ComprableMotionListener {
@@ -32,12 +33,27 @@ public class ComprableTorreDoble extends ComprableMotionListener {
 		Point p = MouseInfo.getPointerInfo().getLocation();
 		SwingUtilities.convertPointFromScreen(p, gui);
 		
-		int mouseY = (int)p.getY();		
+		int mouseX = (int)p.getX();
+		int mouseY = (int)p.getY();
+		
+		int endX = (Juego.FINAL_MAPA - Juego.COMIENZO_MAPA) * Gui.spriteSize;
 		int endY = 5 * Gui.spriteSize;
 		
-		if (mouseY<endY) {
-			super.realizarCompra();
+		if (mouseX>=0 && mouseX<endX && mouseY>=0 && mouseY<endY) {
+			int mapaX = mouseX/Gui.spriteSize + Juego.COMIENZO_MAPA;
+			int mapaY = mouseY/Gui.spriteSize;
+			if (Juego.getJuego().getEntidad(mapaX, mapaY)==null && 
+					Juego.getJuego().getEntidad(mapaX, mapaY+1)==null) {
+				Entidad e = crearPersonaje(mapaX, mapaY);
+				if (e.getCoste()<=Juego.getJuego().getMonedas()) {
+					Juego.getJuego().setEntidad(mapaX, mapaY, e);
+					Juego.getJuego().setEntidad(mapaX, mapaY+1, e);
+					Juego.getJuego().agregarEntidad(e);
+					Juego.getJuego().sumarMonedas(-1*e.getCoste());
+				}				
+			}			
 		}
 	}
+	
 
 }

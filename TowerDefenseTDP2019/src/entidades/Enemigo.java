@@ -42,7 +42,7 @@ public abstract class Enemigo extends Personaje {
 		
 		Random r = new Random();
 		int value = r.nextInt(100);
-		if (value<15) {
+		if (value<90) {
 			Juego.getJuego().agregarEntidad(dropPremio(r));
 		}
 	}
