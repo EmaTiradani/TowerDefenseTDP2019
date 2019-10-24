@@ -23,8 +23,5 @@ public abstract class ObjetoVida extends Objeto implements Atacable {
 			morir();
 		}
 	}
-	public void hacerDaño(float daño) {
-		
-	}
 
 }

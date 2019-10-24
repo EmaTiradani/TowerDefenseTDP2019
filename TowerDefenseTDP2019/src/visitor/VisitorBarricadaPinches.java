@@ -4,7 +4,6 @@ import entidades.Aliado;
 import entidades.Enemigo;
 import entidades.ObjetoVida;
 import personajes.BarricadaConPinches;
-import personajes.Pinches;
 
 public class VisitorBarricadaPinches extends Visitor {
 

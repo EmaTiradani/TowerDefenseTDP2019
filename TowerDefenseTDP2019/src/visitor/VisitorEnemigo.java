@@ -3,7 +3,6 @@ package visitor;
 import entidades.Aliado;
 import entidades.Enemigo;
 import entidades.ObjetoVida;
-import personajes.Barricada;
 import personajes.BarricadaConPinches;
 
 public class VisitorEnemigo extends Visitor {

@@ -17,7 +17,7 @@ public class Kamikaze extends EnemigoCerca {
 		spriteMovimiento = new ImageIcon(this.getClass().getResource("/recursos/enemigos/Kamikaze.gif"));
 		spriteAtaque = new ImageIcon(this.getClass().getResource("/recursos/enemigos/explosion.png"));
 		sprite = new JLabel();
-		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/goblin.png")));
+		sprite.setIcon(spriteMovimiento);
 		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
 		agregarBarraVida();
 		

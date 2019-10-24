@@ -7,7 +7,9 @@ import entidades.Enemigo;
 import entidades.Objeto;
 import personajes.ArenaMovediza;
 import personajes.Arquero;
+import personajes.BarricadaConPinches;
 import personajes.Jefe;
+import personajes.Kamikaze;
 import personajes.Luchador;
 import personajes.Minion;
 import personajes.Pinches;
@@ -48,7 +50,7 @@ public class HiloOleadas implements Runnable {
 		}
 		else {
 			oleada++;
-			timerOleada = 5;	
+			timerOleada = 15;	
 			crearObjetosMapa();
 		} 
 	}
@@ -86,19 +88,19 @@ public class HiloOleadas implements Runnable {
 			e = new Minion(Juego.FINAL_MAPA, y);
 		}
 		else if (value<50) {
-			e = new Jefe(Juego.FINAL_MAPA, y);
+			e = new Luchador(Juego.FINAL_MAPA, y);
 		}
-		else if (value<60) {
+		else if (value<65) {
 			e = new Tanque(Juego.FINAL_MAPA, y);
 		}
-		else if (value<75) {
-			//Kamikaze
+		else if (value<80) {
+			e = new Kamikaze(Juego.FINAL_MAPA, y);
 		}
-		else if (value<90) {
-			 new Arquero(Juego.FINAL_MAPA, y);
+		else if (value<95) {
+			 e = new Arquero(Juego.FINAL_MAPA, y);
 		}
 		else {
-			//Jefe
+			e = new Jefe(Juego.FINAL_MAPA, y); 
 		}	
 		
 		if (r.nextInt(100)<10) {
@@ -125,11 +127,15 @@ public class HiloOleadas implements Runnable {
 				y = r.nextInt(6);
 				if (Juego.getJuego().getEntidad(x, y)==null) {
 					value = r.nextInt(100);
-					if (value<50) {
+					if (value<33) {
 						o = new Pinches(x, y);
 					}
-					else {
+					else if (value<66) {
 						o = new ArenaMovediza(x, y);
+					}
+					else {
+						o = new BarricadaConPinches(x, y);
+						Juego.getJuego().setEntidad(x, y, o);
 					}
 					Juego.getJuego().agregarEntidad(o);
 					inserto = true;
