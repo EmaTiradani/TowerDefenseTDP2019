@@ -3,30 +3,25 @@ package visitor;
 import entidades.Aliado;
 import entidades.Enemigo;
 import entidades.ObjetoVida;
-import personajes.Barricada;
 import personajes.BarricadaConPinches;
+import personajes.Pinches;
 
-public class VisitorEnemigo extends Visitor {
-	
-	protected Enemigo en;
-	
-	public VisitorEnemigo(Enemigo e) {
-		en = e;
+public class VisitorBarricadaPinches extends Visitor {
+
+	protected BarricadaConPinches pinches;
+
+	public VisitorBarricadaPinches(BarricadaConPinches p) {
+		pinches = p;
 	}
-	
+
 	public void visit(Aliado entidad) {
-		en.atacar(entidad);
 	}
 
 	public void visit(Enemigo entidad) {
+		pinches.atacar(entidad);
 	}
 
 	public void visit(ObjetoVida entidad) {
-		en.atacar(entidad);
-	}
-	
-	public void visit(BarricadaConPinches entidad) {
-		en.recibirDaño(50);
 	}
 
 }

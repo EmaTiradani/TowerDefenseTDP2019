@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 import entidades.Entidad;
 import juego.Juego;
 import listeners.ComprableBarricada;
+import listeners.ComprableBarricadaPinches;
 import listeners.ComprableBomba;
 import listeners.ComprableDaño;
 import listeners.ComprableFortaleza;
@@ -42,6 +43,7 @@ public class Gui extends JFrame{
 	
 	//Botones objetos comprables
 	protected JButton btnBarricada;
+	protected JButton btnBarricadaPinches;
 	protected JButton btnBomba;
 	protected JButton btnDaño;
 	protected JButton btnHielo;
@@ -218,5 +220,14 @@ public class Gui extends JFrame{
 		this.getContentPane().add(btnHielo);		
 		ma = new ComprableHielo(this);
 		btnHielo.addMouseListener(ma);
+		
+		//Boton crear BarricadaConPinches
+		btnBarricadaPinches = new JButton();
+		btnBarricadaPinches.setBounds(Gui.spriteSize*9, mapa.getHeight() + score.getHeight() + btnTorreBasica.getHeight(), Gui.spriteSize, Gui.spriteSize);
+		btnBarricadaPinches.setIcon(new ImageIcon(this.getClass().getResource("/recursos/objetos/barricada.png")));
+		this.getContentPane().add(btnBarricadaPinches);		
+		ma = new ComprableBarricadaPinches(this);
+		btnBarricadaPinches.addMouseListener(ma);
+		btnBarricadaPinches.addMouseMotionListener(ma);
 	}	
 }
