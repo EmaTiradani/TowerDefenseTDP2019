@@ -45,11 +45,11 @@ public class ComprableTorreDoble extends ComprableMotionListener {
 			if (Juego.getJuego().getEntidad(mapaX, mapaY)==null && 
 					Juego.getJuego().getEntidad(mapaX, mapaY+1)==null) {
 				Entidad e = crearPersonaje(mapaX, mapaY);
-				if (e.getCoste()<=Juego.getJuego().getMonedas()) {
+				if (e.getValor()<=Juego.getJuego().getMonedas()) {
 					Juego.getJuego().setEntidad(mapaX, mapaY, e);
 					Juego.getJuego().setEntidad(mapaX, mapaY+1, e);
 					Juego.getJuego().agregarEntidad(e);
-					Juego.getJuego().sumarMonedas(-1*e.getCoste());
+					Juego.getJuego().sumarMonedas(-1*e.getValor());
 				}				
 			}			
 		}

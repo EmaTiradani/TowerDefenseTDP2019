@@ -17,7 +17,7 @@ public abstract class Aliado extends Personaje {
 		setVisitor();
 	}
 	
-	public int getCoste() {
+	public int getValor() {
 		return coste;
 	}
 	

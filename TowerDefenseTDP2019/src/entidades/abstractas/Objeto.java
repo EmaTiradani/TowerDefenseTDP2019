@@ -6,7 +6,7 @@ public abstract class Objeto extends Entidad {
 		super(x, y);
 	}
 
-	public int getCoste() {
+	public int getValor() {
 		return 0;
 	}
 	

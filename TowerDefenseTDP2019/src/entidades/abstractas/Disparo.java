@@ -27,7 +27,7 @@ public abstract class Disparo extends Entidad {
 	
 	public abstract void mover();
 	
-	public int getCoste() {
+	public int getValor() {
 		return 0;
 	}
 	

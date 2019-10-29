@@ -45,7 +45,7 @@ public class Bomba extends ObjetoVida {
 		}
 	}
 	
-	public int getCoste() {
+	public int getValor() {
 		return 100;
 	}
 	

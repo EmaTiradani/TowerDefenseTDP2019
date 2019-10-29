@@ -14,7 +14,7 @@ public class GameOverFlag extends Entidad {
 		sprite = new JLabel();
 	}
 	
-	public int getCoste() {
+	public int getValor() {
 		return 0;
 	}
 

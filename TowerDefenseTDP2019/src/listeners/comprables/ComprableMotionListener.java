@@ -57,10 +57,10 @@ public abstract class ComprableMotionListener extends MouseAdapter {
 			int mapaY = mouseY/Gui.spriteSize;
 			if (Juego.getJuego().getEntidad(mapaX, mapaY)==null) {
 				Entidad e = crearPersonaje(mapaX, mapaY);
-				if (e.getCoste()<=Juego.getJuego().getMonedas()) {
+				if (e.getValor()<=Juego.getJuego().getMonedas()) {
 					Juego.getJuego().setEntidad(mapaX, mapaY, e);
 					Juego.getJuego().agregarEntidad(e);
-					Juego.getJuego().sumarMonedas(-1*e.getCoste());
+					Juego.getJuego().sumarMonedas(-1*e.getValor());
 				}				
 			}			
 		}

@@ -72,7 +72,7 @@ public abstract class Enemigo extends Personaje {
 		
 	}
 	
-	public int getCoste() {
+	public int getValor() {
 		return puntaje;
 	}
 	

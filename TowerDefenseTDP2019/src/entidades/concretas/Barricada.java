@@ -19,7 +19,7 @@ public class Barricada extends ObjetoVida {
 	public void accion(float estimatedTime) {
 	}
 	
-	public int getCoste() {
+	public int getValor() {
 		return 35;
 	}
 
