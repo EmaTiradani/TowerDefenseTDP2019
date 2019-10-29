@@ -12,18 +12,18 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-import entidades.Entidad;
+import entidades.abstractas.Entidad;
 import juego.Juego;
-import listeners.ComprableBarricada;
-import listeners.ComprableBomba;
-import listeners.ComprableDaño;
-import listeners.ComprableFortaleza;
-import listeners.ComprableHielo;
-import listeners.ComprableTorreBasica;
-import listeners.ComprableTorreDoble;
-import listeners.ComprableTorreNormal;
-import listeners.ComprableTorreRapida;
 import listeners.ReiniciarJuegoListener;
+import listeners.comprables.ComprableBarricada;
+import listeners.comprables.ComprableBomba;
+import listeners.comprables.ComprableDaño;
+import listeners.comprables.ComprableFortaleza;
+import listeners.comprables.ComprableHielo;
+import listeners.comprables.ComprableTorreBasica;
+import listeners.comprables.ComprableTorreDoble;
+import listeners.comprables.ComprableTorreNormal;
+import listeners.comprables.ComprableTorreRapida;
 
 public class Gui extends JFrame{
 	protected JLabel mapa;	

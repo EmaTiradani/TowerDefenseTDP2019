@@ -1,6 +1,6 @@
 package juego;
 
-import entidades.Entidad;
+import entidades.abstractas.Entidad;
 
 public class Celda {
 	

@@ -1,11 +1,11 @@
 package visitor;
 
 import GUI.Gui;
-import entidades.Aliado;
-import entidades.Disparo;
-import entidades.Enemigo;
-import entidades.Entidad;
-import entidades.ObjetoVida;
+import entidades.abstractas.Aliado;
+import entidades.abstractas.Disparo;
+import entidades.abstractas.Enemigo;
+import entidades.abstractas.Entidad;
+import entidades.abstractas.ObjetoVida;
 
 public class VisitorDisparoAliado extends Visitor{
 	

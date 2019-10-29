@@ -3,17 +3,17 @@ package juego;
 import java.util.Random;
 
 import GUI.Gui;
-import entidades.Enemigo;
-import entidades.Objeto;
-import personajes.ArenaMovediza;
-import personajes.Arquero;
-import personajes.BarricadaConPinches;
-import personajes.Jefe;
-import personajes.Kamikaze;
-import personajes.Luchador;
-import personajes.Minion;
-import personajes.Pinches;
-import personajes.Tanque;
+import entidades.abstractas.Enemigo;
+import entidades.abstractas.Objeto;
+import entidades.concretas.ArenaMovediza;
+import entidades.concretas.Arquero;
+import entidades.concretas.BarricadaConPinches;
+import entidades.concretas.Jefe;
+import entidades.concretas.Kamikaze;
+import entidades.concretas.Luchador;
+import entidades.concretas.Minion;
+import entidades.concretas.Pinches;
+import entidades.concretas.Tanque;
 import state.Proteccion;
 import visitor.VisitorFinNivel;
 
