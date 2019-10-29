@@ -15,6 +15,7 @@ import personajes.Minion;
 import personajes.Pinches;
 import personajes.Tanque;
 import state.Proteccion;
+import visitor.VisitorFinNivel;
 
 public class HiloOleadas implements Runnable {
 	
@@ -23,8 +24,10 @@ public class HiloOleadas implements Runnable {
 	protected int timerOleada;
 	protected Gui gui;
 	protected boolean gameOver;
+	protected VisitorFinNivel visitor;
 	
 	public HiloOleadas(Gui gui) {
+		visitor = new VisitorFinNivel();
 		this.gui = gui;
 		nivel = 0;
 		siguienteNivel();
@@ -36,11 +39,24 @@ public class HiloOleadas implements Runnable {
 			Juego.getJuego().ganar();
 		}
 		else {
+			Juego.getJuego().visitarEntidades(visitor);
+			//El nivel solo puede terminar si no hay enemigos.
+			//El bloque while solo terminara cuando el visitor determine que no hay enemigos en el juego.
+			while (visitor.getCantidad()!=0) {
+				try {
+					Thread.sleep(1000);
+					visitor.setCantidad(0);
+					Juego.getJuego().visitarEntidades(visitor);
+				}
+				catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}			
 			nivel++;
 			Juego.getJuego().nuevoNivel();
 			gui.cambiarNivel(nivel);
 			oleada = 1;
-			timerOleada = 9;			
+			resetTimer();	
 		}
 	}
 	
@@ -50,9 +66,13 @@ public class HiloOleadas implements Runnable {
 		}
 		else {
 			oleada++;
-			timerOleada = 15;	
+			resetTimer();
 			crearObjetosMapa();
 		} 
+	}
+	
+	protected void resetTimer() {
+		timerOleada = 15;
 	}
 
 	public void run() {
@@ -61,7 +81,7 @@ public class HiloOleadas implements Runnable {
 				Thread.sleep(3000);
 				timerOleada -= 3;
 				if (timerOleada<=0) {
-					Thread.sleep(15000);
+					Thread.sleep(10000);
 					siguienteOleada();
 				}
 				else {
