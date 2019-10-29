@@ -12,7 +12,7 @@ public class Barricada extends ObjetoVida {
 		super(x, y, 120);
 		
 		sprite = new JLabel();
-		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/objetos/barricada.png")));
+		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/objetos/muro.png")));
 		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
 	}
 

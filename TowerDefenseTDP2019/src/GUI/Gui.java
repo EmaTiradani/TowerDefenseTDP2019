@@ -42,7 +42,6 @@ public class Gui extends JFrame{
 	
 	//Botones objetos comprables
 	protected JButton btnBarricada;
-	protected JButton btnBarricadaPinches;
 	protected JButton btnBomba;
 	protected JButton btnDaño;
 	protected JButton btnHielo;
@@ -188,7 +187,7 @@ public class Gui extends JFrame{
 		//Boton crear Barricada
 		btnBarricada = new JButton();
 		btnBarricada.setBounds(Gui.spriteSize*5, mapa.getHeight() + score.getHeight() + btnTorreBasica.getHeight(), Gui.spriteSize, Gui.spriteSize);
-		btnBarricada.setIcon(new ImageIcon(this.getClass().getResource("/recursos/objetos/barricada.png")));
+		btnBarricada.setIcon(new ImageIcon(this.getClass().getResource("/recursos/objetos/muro.png")));
 		this.getContentPane().add(btnBarricada);		
 		ma = new ComprableBarricada(this);
 		btnBarricada.addMouseListener(ma);

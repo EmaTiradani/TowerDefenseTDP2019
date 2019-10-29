@@ -14,7 +14,7 @@ public class PremioBomba extends Premio {
 		super(x, y);
 		
 		sprite = new JLabel();
-		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/objetos/bomba.png")));
+		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/objetos/fuego.png")));
 		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
 		agregarListener();
 	}

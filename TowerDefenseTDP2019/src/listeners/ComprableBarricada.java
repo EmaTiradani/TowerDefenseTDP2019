@@ -11,7 +11,7 @@ public class ComprableBarricada extends ComprableMotionListener {
 
 	public ComprableBarricada(Gui gui) {
 		super(gui);
-		sprite = new JLabel(new ImageIcon(this.getClass().getResource("/recursos/objetos/barricada.png")));
+		sprite = new JLabel(new ImageIcon(this.getClass().getResource("/recursos/objetos/muro.png")));
 		sprite.setVisible(false);
 		gui.getContentPane().add(sprite, 0);
 	}
