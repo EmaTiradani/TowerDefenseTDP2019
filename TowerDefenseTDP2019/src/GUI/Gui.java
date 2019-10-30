@@ -110,7 +110,7 @@ public class Gui extends JFrame{
 	}
 	
 	public void cambiarNivel(int i) {
-		mapa.setIcon(new ImageIcon(this.getClass().getResource("/recursos/nivel_" + i + ".jpg")));
+		mapa.setIcon(new ImageIcon(this.getClass().getResource("/recursos/nivel_" + i + "grid.jpg")));
 	}
 
 	public void remove(Entidad entidad) {
