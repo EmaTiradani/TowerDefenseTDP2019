@@ -1,0 +1,27 @@
+package entidades.concretas;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+import GUI.Gui;
+import entidades.abstractas.Disparo;
+import entidades.abstractas.EnemigoDistancia;
+
+public class Arquero extends EnemigoDistancia {
+
+	public Arquero(int x, int y) {
+		super(x, y, 50, 2, 10, 3, 15);
+		
+		spriteMovimiento = new ImageIcon(this.getClass().getResource("/recursos/enemigos/arquero.gif"));
+		spriteAtaque = new ImageIcon(this.getClass().getResource("/recursos/enemigos/disparoarquero.gif"));
+		sprite = new JLabel();
+		sprite.setIcon(spriteMovimiento);
+		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
+		agregarBarraVida();
+	}
+
+	protected Disparo crearDisparo() {
+		return new DisparoEnemigoTest(x/Gui.spriteSize, y/Gui.spriteSize, alcance, estado);
+	}
+
+}

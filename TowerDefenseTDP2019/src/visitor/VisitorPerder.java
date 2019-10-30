@@ -1,8 +1,8 @@
 package visitor;
 
-import entidades.Aliado;
-import entidades.Enemigo;
-import entidades.ObjetoVida;
+import entidades.abstractas.Aliado;
+import entidades.abstractas.Enemigo;
+import entidades.abstractas.ObjetoVida;
 
 public class VisitorPerder extends Visitor {
 	

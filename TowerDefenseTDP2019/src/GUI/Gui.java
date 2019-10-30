@@ -12,18 +12,18 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-import entidades.Entidad;
+import entidades.abstractas.Entidad;
 import juego.Juego;
-import listeners.ComprableBarricada;
-import listeners.ComprableBomba;
-import listeners.ComprableDaño;
-import listeners.ComprableFortaleza;
-import listeners.ComprableHielo;
-import listeners.ComprableTorreBasica;
-import listeners.ComprableTorreDoble;
-import listeners.ComprableTorreNormal;
-import listeners.ComprableTorreRapida;
 import listeners.ReiniciarJuegoListener;
+import listeners.comprables.ComprableBarricada;
+import listeners.comprables.ComprableBomba;
+import listeners.comprables.ComprableDaño;
+import listeners.comprables.ComprableFortaleza;
+import listeners.comprables.ComprableHielo;
+import listeners.comprables.ComprableTorreBasica;
+import listeners.comprables.ComprableTorreDoble;
+import listeners.comprables.ComprableTorreNormal;
+import listeners.comprables.ComprableTorreRapida;
 
 public class Gui extends JFrame{
 	protected JLabel mapa;	
@@ -42,7 +42,6 @@ public class Gui extends JFrame{
 	
 	//Botones objetos comprables
 	protected JButton btnBarricada;
-	protected JButton btnBarricadaPinches;
 	protected JButton btnBomba;
 	protected JButton btnDaño;
 	protected JButton btnHielo;
@@ -188,7 +187,7 @@ public class Gui extends JFrame{
 		//Boton crear Barricada
 		btnBarricada = new JButton();
 		btnBarricada.setBounds(Gui.spriteSize*5, mapa.getHeight() + score.getHeight() + btnTorreBasica.getHeight(), Gui.spriteSize, Gui.spriteSize);
-		btnBarricada.setIcon(new ImageIcon(this.getClass().getResource("/recursos/objetos/barricada.png")));
+		btnBarricada.setIcon(new ImageIcon(this.getClass().getResource("/recursos/objetos/muro.png")));
 		this.getContentPane().add(btnBarricada);		
 		ma = new ComprableBarricada(this);
 		btnBarricada.addMouseListener(ma);

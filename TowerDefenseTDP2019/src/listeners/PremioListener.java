@@ -3,7 +3,7 @@ package listeners;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import entidades.Premio;
+import entidades.abstractas.Premio;
 
 public class PremioListener extends MouseAdapter {
 	

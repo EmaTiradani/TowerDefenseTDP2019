@@ -3,8 +3,8 @@ package juego;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import GUI.Gui;
-import entidades.Entidad;
-import personajes.*;
+import entidades.abstractas.Entidad;
+import entidades.concretas.GameOverFlag;
 import visitor.Visitor;
 
 public class Juego {
