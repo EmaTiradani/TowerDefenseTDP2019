@@ -5,6 +5,10 @@ import entidades.abstractas.Enemigo;
 import entidades.abstractas.ObjetoVida;
 import entidades.concretas.BarricadaConPinches;
 
+/**
+ * Visitor utilizado por la clase BarricadaConPinches
+ *
+ */
 public class VisitorBarricadaPinches extends Visitor {
 
 	protected BarricadaConPinches pinches;

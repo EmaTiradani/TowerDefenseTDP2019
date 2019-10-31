@@ -5,8 +5,15 @@ import entidades.abstractas.Enemigo;
 import entidades.abstractas.ObjetoVida;
 import state.Lento;
 
+/**
+ * Visitor utilizado por la clase ArenaMovediza
+ *
+ */
 public class VisitorArena extends Visitor {
 	
+	/**
+	 * Crea un visitor
+	 */
 	public VisitorArena() {		
 	}
 

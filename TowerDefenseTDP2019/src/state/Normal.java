@@ -1,7 +1,14 @@
 package state;
 
+/**
+ * Tipo de estado normal. Es utilizado cuando la entida no tiene ningún estado.
+ *
+ */
 public class Normal extends Estado {
 	
+	/**
+	 * Crea un estado Normal.
+	 */
 	public Normal() {		
 	}
 

@@ -1,7 +1,13 @@
 package state;
 
+/**
+ * Tipo de estado que incrementa el daño realizado.
+ */
 public class Fuerte extends Estado {
 
+	/**
+	 * Crea un estado Fuerte.
+	 */
 	public Fuerte() {		
 	}
 	
@@ -17,7 +23,7 @@ public class Fuerte extends Estado {
 		return dañoBase;
 	}
 	
-	public int getCoste() {
+	public int getValor() {
 		return 20;
 	}
 

@@ -22,10 +22,10 @@ public abstract class ComprablePowerUp extends MouseAdapter {
 	
 	public void mousePressed(MouseEvent e) {
 		Estado pu = crearPowerUp();
-		if (Juego.getJuego().getMonedas()>=pu.getCoste()) {
+		if (Juego.getJuego().getMonedas()>=pu.getValor()) {
 			Visitor v = getVisitor(pu);
 			Juego.getJuego().visitarEntidades(v);
-			Juego.getJuego().sumarMonedas(-1*pu.getCoste());
+			Juego.getJuego().sumarMonedas(-1*pu.getValor());
 		}
 	}
 	

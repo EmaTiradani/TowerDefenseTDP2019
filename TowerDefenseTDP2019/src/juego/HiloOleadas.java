@@ -4,7 +4,7 @@ import java.util.Random;
 
 import GUI.Gui;
 import entidades.abstractas.Enemigo;
-import entidades.abstractas.Objeto;
+import entidades.abstractas.Entidad;
 import entidades.concretas.ArenaMovediza;
 import entidades.concretas.Arquero;
 import entidades.concretas.BarricadaConPinches;
@@ -137,7 +137,7 @@ public class HiloOleadas implements Runnable {
 	}
 	
 	protected void crearObjetosMapa() {
-		Objeto o;
+		Entidad o;
 		Random r = new Random();
 		boolean inserto;
 		int x, y, value;

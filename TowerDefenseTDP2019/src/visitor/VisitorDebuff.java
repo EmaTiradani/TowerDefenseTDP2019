@@ -5,10 +5,18 @@ import entidades.abstractas.Enemigo;
 import entidades.abstractas.ObjetoVida;
 import state.Estado;
 
+/**
+ * Visitor que asigna un estado temporal a las entidades de tipo Enemigo.
+ *
+ */
 public class VisitorDebuff extends Visitor {
 	
 	public Estado debuff;
 	
+	/**
+	 * Crea un visitor con un estado que asigna a los enemigos
+	 * @param estado - El estado
+	 */
 	public VisitorDebuff(Estado e) {
 		debuff = e;
 	}
