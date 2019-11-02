@@ -15,7 +15,7 @@ public class VisitorDebuff extends Visitor {
 	
 	/**
 	 * Crea un visitor con un estado que asigna a los enemigos
-	 * @param estado - El estado
+	 * @param e - El estado
 	 */
 	public VisitorDebuff(Estado e) {
 		debuff = e;

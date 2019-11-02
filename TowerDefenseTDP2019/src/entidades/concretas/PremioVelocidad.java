@@ -9,8 +9,17 @@ import juego.Juego;
 import state.Rapido;
 import visitor.VisitorBuff;
 
+/**
+ * Tipo de premio que incrementa la velocidad de disparo de los aliados cuando es activado.
+ *
+ */
 public class PremioVelocidad extends Premio {
 
+	/**
+	 * Crea el premio en una posición
+	 * @param x - La columna donde se crea el objeto
+	 * @param y - La fila donde se crea el objeto
+	 */
 	public PremioVelocidad(int x, int y) {
 		super(x, y);
 		

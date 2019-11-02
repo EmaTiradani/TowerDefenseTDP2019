@@ -9,8 +9,16 @@ import state.Lento;
 import visitor.Visitor;
 import visitor.VisitorDebuff;
 
+/**
+ * Listener asociado con el estado Lento
+ *
+ */
 public class ComprableHielo extends ComprablePowerUp {
 
+	/**
+	 * Crea un listener.
+	 * @param gui - La interfaz gráfica
+	 */
 	public ComprableHielo(Gui gui) {
 		super(gui);
 		sprite = new JLabel(new ImageIcon(this.getClass().getResource("/recursos/objetos/hielo.png")));

@@ -7,10 +7,20 @@ import GUI.Gui;
 import entidades.abstractas.Atacable;
 import entidades.abstractas.EnemigoCerca;
 
+/**
+ * Enemigo que se destruye al realizar un ataque. Debido a esto, solo puede realizar un ataque,
+ * y por lo tanto está diseñado para realizar suficiente daño para destruir casi cualquier obstáculo con un solo ataque.
+ *
+ */
 public class Kamikaze extends EnemigoCerca {
 	
 	protected boolean exploto;
 	
+	/**
+	 * Crea un kamikaze en una posición.
+	 * @param x - La columna donde se crea el personaje
+	 * @param y - La fila donde se crea el personaje
+	 */
 	public Kamikaze(int x, int y) {
 		super(x, y, 25, 15, 1, 150, 5);
 		

@@ -42,6 +42,10 @@ public abstract class EnemigoDistancia extends Enemigo {
 		}
 	}
 	
+	/**
+	 * Crea y retorna el disparo. Cada clase concreta que herede de EnemigoDistancia deber definir qué tipo de disparo creará.
+	 * @return El disparo
+	 */
 	protected abstract Disparo crearDisparo();
 
 	public void accion(float estimatedTime) {

@@ -13,6 +13,10 @@ public class VisitorBarricadaPinches extends Visitor {
 
 	protected BarricadaConPinches pinches;
 
+	/**
+	 * Crea un visitor
+	 * @param p - La barricada con pinches que crea el visitor
+	 */
 	public VisitorBarricadaPinches(BarricadaConPinches p) {
 		pinches = p;
 	}

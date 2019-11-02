@@ -1,5 +1,8 @@
 package entidades.abstractas;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 import GUI.Gui;
 import juego.Juego;
 import state.Estado;
@@ -25,6 +28,10 @@ public abstract class DisparoEnemigo extends Disparo {
 		target = this.x - (alcance*Gui.spriteSize - Gui.spriteSize/2);
 		this.x -= Gui.spriteSize/2; //Ubica el inicio del disparo en el centro de la celda
 		setVisitor();
+		
+		sprite = new JLabel();
+		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/arrow.png")));
+		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
 	}
 
 	/**

@@ -8,8 +8,17 @@ import entidades.abstractas.Premio;
 import juego.Juego;
 import visitor.VisitorRestaurador;
 
+/**
+ * Tipo de premio que restaura la vida de todos los aliados cuando es activado.
+ *
+ */
 public class PremioRestaurar extends Premio {
 
+	/**
+	 * Crea el premio en una posición
+	 * @param x - La columna donde se crea el objeto
+	 * @param y - La fila donde se crea el objeto
+	 */
 	public PremioRestaurar(int x, int y) {
 		super(x, y);
 		miVisitor = new VisitorRestaurador();

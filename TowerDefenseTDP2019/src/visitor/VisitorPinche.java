@@ -5,10 +5,18 @@ import entidades.abstractas.Enemigo;
 import entidades.abstractas.ObjetoVida;
 import entidades.concretas.Pinches;
 
+/**
+ * Visitor utilizado por la clase Pinches
+ *
+ */
 public class VisitorPinche extends Visitor {
 	
 	protected Pinches pinches;
 
+	/**
+	 * Crea el visitor.
+	 * @param p - Los pinches que crean el visitor
+	 */
 	public VisitorPinche(Pinches p) {
 		pinches = p;
 	}

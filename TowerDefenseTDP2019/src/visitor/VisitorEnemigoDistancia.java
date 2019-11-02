@@ -6,10 +6,18 @@ import entidades.abstractas.Enemigo;
 import entidades.abstractas.EnemigoDistancia;
 import entidades.abstractas.ObjetoVida;
 
+/**
+ * Visitor que utilizan los enemigos que atacan a distancia para determinar su interacción con otras entidads.
+ *
+ */
 public class VisitorEnemigoDistancia extends Visitor {
 	
 	protected EnemigoDistancia enemigo;
 	
+	/**
+	 * Crea el visitor.
+	 * @param e - El enemigo que crea el visitor
+	 */
 	public VisitorEnemigoDistancia(EnemigoDistancia e) {
 		enemigo = e;
 	}

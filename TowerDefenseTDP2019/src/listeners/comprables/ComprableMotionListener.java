@@ -11,11 +11,19 @@ import GUI.Gui;
 import entidades.abstractas.Entidad;
 import juego.Juego;
 
+/**
+ * Listener utilizado para las compras de aliados y objetos.
+ *
+ */
 public abstract class ComprableMotionListener extends MouseAdapter {
 	
 	protected JLabel sprite;
 	protected Gui gui;
 	
+	/**
+	 * Crea un listener.
+	 * @param gui - La interfaz gráfica
+	 */
 	protected ComprableMotionListener(Gui gui) {
 		this.gui = gui;
 	}
@@ -42,6 +50,9 @@ public abstract class ComprableMotionListener extends MouseAdapter {
 		this.realizarCompra();
 	}
 	
+	/**
+	 * Si el jugador tiene suficientes monedas, realiza la compra y sitúa la entidad comprada en el lugar marcado por el jugador.
+	 */
 	protected void realizarCompra() {
 		Point p = MouseInfo.getPointerInfo().getLocation();
 		SwingUtilities.convertPointFromScreen(p, gui);
@@ -56,7 +67,7 @@ public abstract class ComprableMotionListener extends MouseAdapter {
 			int mapaX = mouseX/Gui.spriteSize + Juego.COMIENZO_MAPA;
 			int mapaY = mouseY/Gui.spriteSize;
 			if (Juego.getJuego().getEntidad(mapaX, mapaY)==null) {
-				Entidad e = crearPersonaje(mapaX, mapaY);
+				Entidad e = crearEntidad(mapaX, mapaY);
 				if (e.getValor()<=Juego.getJuego().getMonedas()) {
 					Juego.getJuego().setEntidad(mapaX, mapaY, e);
 					Juego.getJuego().agregarEntidad(e);
@@ -66,10 +77,21 @@ public abstract class ComprableMotionListener extends MouseAdapter {
 		}
 	}
 	
+	/**
+	 * Actualiza la posición del componente gráfico para que esté en la misma posición que el cursor.
+	 * @param x - La posición horizontal en pixeles del cursor
+	 * @param y - La posición vertical en pixeles del cursor
+	 */
 	protected void actualizarPosicion(int x, int y) {
 		sprite.setBounds(x, y, Gui.spriteSize, Gui.spriteSize);
 	}
 	
-	protected abstract Entidad crearPersonaje(int x, int y);
+	/**
+	 * Crea la entidad asociada con este listener
+	 * @param x - La columna del mapa donde será insertada
+	 * @param y - La fila del mapa donde será insertada
+	 * @return La entidad creada
+	 */
+	protected abstract Entidad crearEntidad(int x, int y);
 
 }

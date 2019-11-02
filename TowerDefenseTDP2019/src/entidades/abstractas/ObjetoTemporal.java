@@ -5,6 +5,8 @@ import visitor.Visitor;
 /**
  * Tipo de entidad que existe por un tiempo finito. Ese tiempo es determinado durante la creación del objeto.
  * Una vez pasado el tiempo límite, el objeto se destruye.
+ * Cabe aclarar que los objetos temporales no tienen colisión con otras entidades, asi que pueden ocupar una celda que ya esté ocupado,
+ * y de la misma manera, otras entidades pueden ocupar una celda que ya esté ocupada por el objeto temporal.
  *
  */
 public abstract class ObjetoTemporal extends Entidad {

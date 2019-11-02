@@ -6,7 +6,17 @@ import javax.swing.JLabel;
 import GUI.Gui;
 import entidades.abstractas.EnemigoCerca;
 
+/**
+ * El tipo de enemigo más débil, pero también el más rápido.
+ *
+ */
 public class Minion extends EnemigoCerca {
+	
+	/**
+	 * Crea un minion en una posición.
+	 * @param x - La columna donde se crea el personaje
+	 * @param y - La fila donde se crea el personaje
+	 */
 	public Minion(int x, int y) {
 		super(x, y, 25, 12, 1, 10, 5);
 		

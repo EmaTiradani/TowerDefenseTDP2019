@@ -9,8 +9,16 @@ import juego.Juego;
 import state.Proteccion;
 import visitor.VisitorBuff;
 
+/**
+ * Tipo de premio que otorga el estado de Proteccion a todos los aliados cuando es activado.
+ */
 public class PremioProteccion extends Premio {
 
+	/**
+	 * Crea el premio en una posición
+	 * @param x - La columna donde se crea el objeto
+	 * @param y - La fila donde se crea el objeto
+	 */
 	public PremioProteccion(int x, int y) {
 		super(x, y);
 		

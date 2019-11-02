@@ -25,6 +25,10 @@ import listeners.comprables.ComprableTorreDoble;
 import listeners.comprables.ComprableTorreNormal;
 import listeners.comprables.ComprableTorreRapida;
 
+/**
+ * Clase central que maneja la interfaz gráfica
+ *
+ */
 public class Gui extends JFrame{
 	protected JLabel mapa;	
 	
@@ -48,6 +52,9 @@ public class Gui extends JFrame{
 	
 	protected JLabel mensajeFinal;
 	
+	/**
+	 * Crea la interfaz gráfica del juego.
+	 */
 	public Gui() {		
 		//Inicialización del frame
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -93,35 +100,61 @@ public class Gui extends JFrame{
 		this.repaint();
 	}
 	
+	/**
+	 * Agrega gráficamente una entidad al mapa del juego.
+	 * @param e - La entidad a agregar.
+	 */
 	public void agregarEntidad(Entidad e) {
 		mapa.add(e.getSprite(), 0);	
 		mapa.repaint();
 	}
 	
+	/**
+	 * Actualiza el componente gráfico que notifica al usuario del puntaje actual.
+	 * @param puntaje - Puntaje actual
+	 */
 	public void actualizarPuntaje(int puntaje) {
 		score.setText("Puntaje: " + puntaje);
 		score.repaint();
 	}
 	
+	/**
+	 * Actualiza el componente gráfico que notifica al usuario de las monedas actuales.
+	 * @param monedas - Monedas actuales
+	 */
 	public void actualizarMonedas(int monedas) {
 		this.monedas.setText("Monedas: " + monedas);
 		this.monedas.repaint();
 	}
 	
+	/**
+	 * Cambia gráficamente de nivel, es decir, cambia el fondo del mapa.
+	 * @param i - El número de nivel a cargar
+	 */
 	public void cambiarNivel(int i) {
 		mapa.setIcon(new ImageIcon(this.getClass().getResource("/recursos/nivel_" + i + ".jpg")));
 	}
 
+	/**
+	 * Elimina gráficamente una entidad del mapa.
+	 * @param entidad - Entidad a eliminar
+	 */
 	public void remove(Entidad entidad) {
 		mapa.remove(entidad.getSprite());
 		mapa.repaint();
 	}
 	
+	/**
+	 * Eliminar el mensaje de fin de juego, permitiendo que el jugador pueda volver a intentar el juegp.
+	 */
 	public void reinciarJuego() {
 		mensajeFinal.setVisible(false);
 		mensajeFinal.repaint();
 	}
 	
+	/**
+	 * Muestra el mensaje de derrota.
+	 */
 	public void perder() {
 		mensajeFinal.setText("<html>PERDISTE<br>Click aca para reiniciar</html>");
 		mensajeFinal.setForeground(Color.RED);
@@ -129,6 +162,9 @@ public class Gui extends JFrame{
 		mensajeFinal.repaint();
 	}
 	
+	/**
+	 * Muestra el mensaje de victoria.
+	 */
 	public void ganar() {
 		mensajeFinal.setText("GANASTE");
 		mensajeFinal.setForeground(Color.BLUE);
@@ -136,6 +172,9 @@ public class Gui extends JFrame{
 		mensajeFinal.repaint();
 	}
 	
+	/**
+	 * Agrega todos los botones necesarios para comprar los personajes, objetos y power ups.
+	 */
 	protected void agregarBotonesComprables() {
 		MouseAdapter ma;
 		
