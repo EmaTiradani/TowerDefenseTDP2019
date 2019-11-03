@@ -24,7 +24,7 @@ public abstract class Personaje extends Entidad implements Atacable {
 	protected float cooldownEstado;//0: Estado normal - Positivo: Estado temporal activo - Negativo: el estado debe terminar
 	
 	/**
-	 * Crear un personaje en una cierta posición. El personaje es creado con un estado Normal.
+	 * Crea un personaje en una posición. El personaje es creado con un estado Normal.
 	 * @param x - La columna donde se crea el personaje
 	 * @param y - La fila donde se crea el personaje
 	 * @param vida - La vida maxima del personaje

@@ -6,7 +6,17 @@ import javax.swing.JLabel;
 import GUI.Gui;
 import entidades.abstractas.EnemigoCerca;
 
+/**
+ * Crea un enemigo normal con daño y vida promedio.
+ *
+ */
 public class Luchador extends EnemigoCerca {
+	
+	/**
+	 * Crea un luchador en una posición.
+	 * @param x - La columna donde se crea el personaje
+	 * @param y - La fila donde se crea el personaje
+	 */
 	public Luchador(int x, int y) {
 		super(x, y, 150, 2, 2, 10, 10);
 		

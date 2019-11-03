@@ -10,12 +10,22 @@ import entidades.abstractas.ObjetoVida;
 import juego.Juego;
 import visitor.VisitorBarricadaPinches;
 
+/**
+ * Tipo de objeto que tiene dos funciones: la primera es funcionar como un obstaculo de los enemigos,
+ * y la segunda es realizar daño al enemigo que tiene en frente.
+ *
+ */
 public class BarricadaConPinches extends ObjetoVida{
 	
 	protected float daño;
 	protected float cooldownAtaque;
 	protected float cooldownActual;
 
+	/**
+	 * Crea una barricada con pinches.
+	 * @param x - La columna donde se crea el objeto
+	 * @param y - La fila donde se crea el objeto
+	 */
 	public BarricadaConPinches(int x, int y) {
 		super(x, y, 100);
 		
@@ -30,6 +40,9 @@ public class BarricadaConPinches extends ObjetoVida{
 		setVisitor();
 	}
 	
+	/**
+	 * Inicializa el Visitor de la barricada con pinches. Usado durante la creación del objeto.
+	 */
 	protected void setVisitor() {
 		miVisitor = new VisitorBarricadaPinches(this);
 	}
@@ -42,6 +55,10 @@ public class BarricadaConPinches extends ObjetoVida{
 		}
 	}
 	
+	/**
+	 * Realiza un ataque contra una entidad.
+	 * @param entidad - La entidad que será atacada
+	 */
 	public void atacar(Atacable entidad) {
 		if (cooldownActual<=0) {
 			entidad.recibirDaño(daño);		

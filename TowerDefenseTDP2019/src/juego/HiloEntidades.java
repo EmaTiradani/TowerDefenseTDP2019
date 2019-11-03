@@ -1,15 +1,26 @@
 package juego;
 
+/**
+ * Hilo encargado de controlar las acciones de todas las entidades activas.
+ *
+ */
 public class HiloEntidades implements Runnable {
 	
 	protected long timer;
 	protected float estimatedTime;
 	protected boolean gameOver;
 	
+	/**
+	 * Crea el hilo.
+	 */
 	public HiloEntidades() {
 		gameOver = false;
 	}
 	
+	/**
+	 * Establece si el juego terminó.
+	 * @param go - Booleano que, si es verdadero, determina que el juego terminó
+	 */
 	public void setGameOver(boolean go) {
 		gameOver = go;
 	}

@@ -5,8 +5,15 @@ import java.awt.event.MouseEvent;
 
 import juego.Juego;
 
+/**
+ * Listener utilizado para reinicar el juego.
+ *
+ */
 public class ReiniciarJuegoListener extends MouseAdapter {
 	
+	/**
+	 * Crea un listener
+	 */
 	public ReiniciarJuegoListener() {		
 	}
 	

@@ -6,7 +6,17 @@ import javax.swing.JLabel;
 import GUI.Gui;
 import entidades.abstractas.EnemigoCerca;
 
+/**
+ * El enemigo más fuerte del juego. Tiene mucha vida y realiza mucho daño.
+ *
+ */
 public class Jefe extends EnemigoCerca {
+	
+	/**
+	 * Crea un jefe en una posición.
+	 * @param x - La columna donde se crea el personaje
+	 * @param y - La fila donde se crea el personaje
+	 */
 	public Jefe(int x, int y) {
 		super(x, y, 400, 10, 4, 50, 150);
 		

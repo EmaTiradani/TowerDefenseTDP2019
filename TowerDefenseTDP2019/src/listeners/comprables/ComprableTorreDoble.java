@@ -12,8 +12,16 @@ import entidades.abstractas.Entidad;
 import entidades.concretas.TorreDoble;
 import juego.Juego;
 
+/**
+ * Listener asociado con el aliado TorreDoble
+ *
+ */
 public class ComprableTorreDoble extends ComprableMotionListener {
 
+	/**
+	 * Crea un listener.
+	 * @param gui - La interfaz gráfica
+	 */
 	public ComprableTorreDoble(Gui gui) {
 		super(gui);
 		sprite = new JLabel(new ImageIcon(this.getClass().getResource("/recursos/aliados/aliado_doble01.png")));
@@ -21,7 +29,7 @@ public class ComprableTorreDoble extends ComprableMotionListener {
 		gui.getContentPane().add(sprite, 0);
 	}
 
-	protected Entidad crearPersonaje(int x, int y) {
+	protected Entidad crearEntidad(int x, int y) {
 		return new TorreDoble(x, y);
 	}
 	
@@ -44,7 +52,7 @@ public class ComprableTorreDoble extends ComprableMotionListener {
 			int mapaY = mouseY/Gui.spriteSize;
 			if (Juego.getJuego().getEntidad(mapaX, mapaY)==null && 
 					Juego.getJuego().getEntidad(mapaX, mapaY+1)==null) {
-				Entidad e = crearPersonaje(mapaX, mapaY);
+				Entidad e = crearEntidad(mapaX, mapaY);
 				if (e.getValor()<=Juego.getJuego().getMonedas()) {
 					Juego.getJuego().setEntidad(mapaX, mapaY, e);
 					Juego.getJuego().setEntidad(mapaX, mapaY+1, e);

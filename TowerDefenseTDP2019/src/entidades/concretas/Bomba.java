@@ -7,8 +7,18 @@ import entidades.abstractas.Entidad;
 import entidades.abstractas.ObjetoVida;
 import juego.Juego;
 
+/**
+ * La bomba es un objeto que tiene muy poca vida, por lo tanto es destruido al poco tiempo de ser atacado. 
+ * Cuando se destruye, también destruye las entidades adyacentes.
+ *
+ */
 public class Bomba extends ObjetoVida {
 
+	/**
+	 * Crea una bomba en una posición.
+	 * @param x - La columna donde se crea el objeto
+	 * @param y - La fila donde se crea el objeto
+	 */
 	public Bomba(int x, int y) {
 		super(x, y, 11);
 		
@@ -25,6 +35,9 @@ public class Bomba extends ObjetoVida {
 		matarEntidadesAdyacentes();
 	}
 
+	/**
+	 * Destruye todas las entidades adyacentes a la bomba.
+	 */
 	protected void matarEntidadesAdyacentes() {
 		int n = x/Gui.spriteSize;
 		int m = y/Gui.spriteSize;
@@ -35,11 +48,9 @@ public class Bomba extends ObjetoVida {
 					if (m+j>=0 && m+j<6) {
 						e = Juego.getJuego().getEntidad(n+i, m+j);
 						if (e!=null) {
-							System.out.println("Hola");
 							e.morir();					
 						}
-					}
-					
+					}					
 				}				
 			}
 		}

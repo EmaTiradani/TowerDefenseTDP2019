@@ -4,12 +4,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import GUI.Gui;
-import entidades.abstractas.Enemigo;
+import entidades.abstractas.Atacable;
 import entidades.abstractas.Entidad;
 import entidades.abstractas.ObjetoTemporal;
 import juego.Juego;
 import visitor.VisitorPinche;
 
+/**
+ * Tipo de objeto que realiza daño al enemigo que esté encima de este.
+ *
+ */
 public class Pinches extends ObjetoTemporal {
 
 	protected float daño;
@@ -30,6 +34,9 @@ public class Pinches extends ObjetoTemporal {
 		setVisitor();
 	}
 	
+	/**
+	 * Inicializa el Visitor de los pinches. Usado durante la creación del objeto.
+	 */
 	protected void setVisitor() {
 		miVisitor = new VisitorPinche(this);
 	}
@@ -44,7 +51,11 @@ public class Pinches extends ObjetoTemporal {
 		}
 	}
 
-	public void atacar(Enemigo entidad) {
+	/**
+	 * Realiza un ataque contra una entidad.
+	 * @param entidad - La entidad que será atacada
+	 */
+	public void atacar(Atacable entidad) {
 		if (cooldownActual<=0) {
 			entidad.recibirDaño(daño);		
 			cooldownActual = cooldownAtaque;		

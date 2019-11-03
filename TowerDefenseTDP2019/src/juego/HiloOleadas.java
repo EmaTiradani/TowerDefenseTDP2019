@@ -4,7 +4,7 @@ import java.util.Random;
 
 import GUI.Gui;
 import entidades.abstractas.Enemigo;
-import entidades.abstractas.Objeto;
+import entidades.abstractas.Entidad;
 import entidades.concretas.ArenaMovediza;
 import entidades.concretas.Arquero;
 import entidades.concretas.BarricadaConPinches;
@@ -17,6 +17,10 @@ import entidades.concretas.Tanque;
 import state.Proteccion;
 import visitor.VisitorFinNivel;
 
+/**
+ * Hilo encargado de controlar las oleadeas y niveles del juego.
+ *
+ */
 public class HiloOleadas implements Runnable {
 	
 	protected int oleada;
@@ -26,6 +30,10 @@ public class HiloOleadas implements Runnable {
 	protected boolean gameOver;
 	protected VisitorFinNivel visitor;
 	
+	/**
+	 * Crea el hilo.
+	 * @param gui - La interfaz gráfica del juego. Necesario para realizar el cambio de nivel visualmente.
+	 */
 	public HiloOleadas(Gui gui) {
 		visitor = new VisitorFinNivel();
 		this.gui = gui;
@@ -34,6 +42,9 @@ public class HiloOleadas implements Runnable {
 		gameOver = false;
 	}
 	
+	/**
+	 * Cambia de nivel. Si este nivel era el último, el juego termina en victoria.
+	 */
 	protected void siguienteNivel() {
 		if (nivel==2) {
 			Juego.getJuego().ganar();
@@ -45,7 +56,7 @@ public class HiloOleadas implements Runnable {
 			while (visitor.getCantidad()!=0) {
 				try {
 					Thread.sleep(1000);
-					visitor.setCantidad(0);
+					visitor.resetCantidad();
 					Juego.getJuego().visitarEntidades(visitor);
 				}
 				catch (InterruptedException e) {
@@ -60,6 +71,9 @@ public class HiloOleadas implements Runnable {
 		}
 	}
 	
+	/**
+	 * Cambia de oleada. Si esta era la última oleada, se realiza un cambio de nivel.
+	 */
 	protected void siguienteOleada() {
 		if (oleada==3) {
 			siguienteNivel();
@@ -71,6 +85,9 @@ public class HiloOleadas implements Runnable {
 		} 
 	}
 	
+	/**
+	 * Reiniciar el contador de la oleada. Este método es llamado durante los cambios de oleadas y niveles.
+	 */
 	protected void resetTimer() {
 		timerOleada = 15;
 	}
@@ -93,16 +110,21 @@ public class HiloOleadas implements Runnable {
 		}
 	}
 	
+	/**
+	 * Establece si el juego terminó.
+	 * @param go - Booleano que, si es verdadero, determina que el juego terminó
+	 */
 	public void setGameOver(boolean go) {
 		gameOver = go;
 	}
 	
+	/**
+	 * Crea un enemigo al azar y lo agrega al juego.
+	 */
 	public void crearSiguienteEnemigo() {
 		Random r = new Random();		
 		int y  = r.nextInt(6);
-		int value = r.nextInt(100);
-		
-		//Enemigo e = new Minion(Juego.FINAL_MAPA, y); //Constructor temporal para testear la oleada en una sola fila
+		int value = r.nextInt(100);		
 		Enemigo e = null;
 		
 		if (value<30) {
@@ -136,8 +158,11 @@ public class HiloOleadas implements Runnable {
 		
 	}
 	
+	/**
+	 * Crea varios objetos del mapa aleatoriamente y los agrega al juego.
+	 */
 	protected void crearObjetosMapa() {
-		Objeto o;
+		Entidad o;
 		Random r = new Random();
 		boolean inserto;
 		int x, y, value;

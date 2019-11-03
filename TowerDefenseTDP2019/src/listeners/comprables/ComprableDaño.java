@@ -7,8 +7,16 @@ import GUI.Gui;
 import state.Estado;
 import state.Fuerte;
 
+/**
+ * Listener asociado con el estado Fuerte.
+ *
+ */
 public class ComprableDaño extends ComprablePowerUp {
 
+	/**
+	 * Crea un listener.
+	 * @param gui - La interfaz gráfica
+	 */
 	public ComprableDaño(Gui gui) {
 		super(gui);
 		sprite = new JLabel(new ImageIcon(this.getClass().getResource("/recursos/objetos/ataque.png")));

@@ -7,8 +7,16 @@ import GUI.Gui;
 import entidades.abstractas.Entidad;
 import entidades.concretas.Bomba;
 
+/**
+ * Listener asociado con la entidad Bomba.
+ *
+ */
 public class ComprableBomba extends ComprableMotionListener {
 
+	/**
+	 * Crea un listener.
+	 * @param gui - La interfaz gráfica
+	 */
 	public ComprableBomba(Gui gui) {
 		super(gui);
 		sprite = new JLabel(new ImageIcon(this.getClass().getResource("/recursos/objetos/bomba.png")));
@@ -16,7 +24,7 @@ public class ComprableBomba extends ComprableMotionListener {
 		gui.getContentPane().add(sprite, 0);
 	}
 
-	protected Entidad crearPersonaje(int x, int y) {
+	protected Entidad crearEntidad(int x, int y) {
 		return new Bomba(x, y);
 	}
 

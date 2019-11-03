@@ -1,7 +1,14 @@
 package state;
 
+/**
+ * Tipo de estado que incrementa la velocidad de movimiento.
+ *
+ */
 public class Rapido extends Estado {
 	
+	/**
+	 * Crea un estado Rapido
+	 */
 	public Rapido() {		
 	}
 
