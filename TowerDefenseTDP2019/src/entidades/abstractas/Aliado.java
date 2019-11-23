@@ -74,6 +74,9 @@ public abstract class Aliado extends Personaje {
 	 */
 	protected abstract Disparo crearDisparo();
 	
+	/**
+	 * Agrega un listener al aliado para poder ser vendido cuando se realiza click derecho sobre el.
+	 */
 	protected void agregarVendibleListener() {
 		sprite.addMouseListener(new VenderListener(this));
 	}
