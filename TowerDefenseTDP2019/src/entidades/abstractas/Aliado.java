@@ -2,6 +2,7 @@ package entidades.abstractas;
 
 import GUI.Gui;
 import juego.Juego;
+import listeners.VenderListener;
 import visitor.Visitor;
 import visitor.VisitorAliado;
 
@@ -72,4 +73,8 @@ public abstract class Aliado extends Personaje {
 	 * @return El disparo
 	 */
 	protected abstract Disparo crearDisparo();
+	
+	protected void agregarVendibleListener() {
+		sprite.addMouseListener(new VenderListener(this));
+	}
 }

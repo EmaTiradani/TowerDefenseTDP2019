@@ -30,7 +30,7 @@ public abstract class DisparoEnemigo extends Disparo {
 		setVisitor();
 		
 		sprite = new JLabel();
-		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/arrow.png")));
+		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/arrow2.png")));
 		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
 	}
 

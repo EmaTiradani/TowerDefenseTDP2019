@@ -86,7 +86,7 @@ public abstract class Personaje extends Entidad implements Atacable {
 	}
 
 	/**
-	 * Cambia el estado del personaje
+	 * Cambia el estado del personaje.
 	 * @param e - Nuevo estado a asignar.
 	 * @param tiempo - El tiempo que dura este estado. Si el tiempo es 0, el estado se mantiene indefinidamente.
 	 */
@@ -101,5 +101,13 @@ public abstract class Personaje extends Entidad implements Atacable {
 	public void recuperarVida() {
 		vida = maxVida;
 		actualizarVida();
+	}
+	
+	/**
+	 * Retorna verdadero si el personaje tiene su vida al máximo.
+	 * @return Verdadero si el personaje tiene su vida al máximo. Falso en otro caso.
+	 */
+	public boolean estaSano() {
+		return vida == maxVida;
 	}
 }

@@ -23,6 +23,7 @@ public class TorreRapida extends Aliado {
 		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/aliados/aliado03.png")));
 		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
 		agregarBarraVida();
+		agregarVendibleListener();
 	}
 
 	protected Disparo crearDisparo() {

@@ -26,6 +26,7 @@ public class TorreDoble extends Aliado {
 		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/aliados/aliado_doble01.png")));
 		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize*2);
 		agregarBarraVida();
+		agregarVendibleListener();
 	}
 
 	protected Disparo crearDisparo() {

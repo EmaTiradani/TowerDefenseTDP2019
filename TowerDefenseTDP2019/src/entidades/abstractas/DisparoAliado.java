@@ -30,7 +30,7 @@ public abstract class DisparoAliado extends Disparo{
 		this.x += Gui.spriteSize/2; //Ubica el inicio del disparo en el centro de la celda
 		
 		sprite = new JLabel();
-		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/arrow2.png")));
+		sprite.setIcon(new ImageIcon(this.getClass().getResource("/recursos/arrow.png")));
 		sprite.setBounds(this.x, this.y, Gui.spriteSize, Gui.spriteSize);
 	}
 	
